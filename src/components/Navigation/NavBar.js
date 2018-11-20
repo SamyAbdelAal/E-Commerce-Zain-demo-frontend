@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import { open } from "../../functions";
 
+// Actions
+import * as actionCreators from "../../store/actions";
 // Components
 
 class NavBar extends Component {
@@ -35,9 +38,39 @@ class NavBar extends Component {
         <span onClick={() => open()} style={{ cursor: "pointer" }}>
           &#9776; open
         </span>
+        {this.props.user ? (
+          <button
+            onClick={() => this.props.logout()}
+            className="btn btn-outline-primary"
+            style={{ marginLeft: "auto" }}
+          >
+            logout {this.props.user.username}
+          </button>
+        ) : (
+          <Link to="/login">login</Link>
+        )}
       </nav>
     );
   }
 }
 
-export default NavBar;
+const mapDispatchToProps = dispatch => ({
+  login: (userData, history) =>
+    dispatch(actionCreators.login(userData, history)),
+  signup: (userData, history) =>
+    dispatch(actionCreators.signup(userData, history)),
+  logout: () => dispatch(actionCreators.logout())
+});
+const mapStateToProps = state => {
+  return {
+    user: state.auth.user,
+    errs: state.errors
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(NavBar)
+);

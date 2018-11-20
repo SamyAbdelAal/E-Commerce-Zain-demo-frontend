@@ -10,9 +10,9 @@ class Welcome extends Component {
           style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
         >
           <div className="container text-center my-auto z-1">
-            <h1 className="mb-1">HELLO STRANGER</h1>
             {!this.props.user ? (
               <div>
+                <h1 className="mb-1">HELLO STRANGER</h1>
                 <h3 className="mb-5">
                   <em>You're gonna need to login to see the messages</em>
                 </h3>
@@ -21,7 +21,12 @@ class Welcome extends Component {
                 </Link>
               </div>
             ) : (
-              <Redirect to="/channels" />
+              <div>
+                <h1 className="mb-1">HELLO {this.props.user.username}</h1>
+                <Link to="/items" className="btn btn-primary btn-lg">
+                  Products
+                </Link>
+              </div>
             )}
           </div>
         </div>

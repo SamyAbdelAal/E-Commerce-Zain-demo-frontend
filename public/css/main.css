@@ -384,7 +384,7 @@ body.sidenav-toggled #mainNav.static-top #sidenavToggler i {
 
 .welcome {
   background-image: url("/images/welcome.jpeg");
-  height: calc(100vh - (56px + 70px));
+  height: calc(100vh - (42px + 70px));
   background-size: cover;
   color: #f0f0f0;
 
@@ -908,12 +908,10 @@ footer.sticky-footer {
 
 @media (min-width: 992px) {
   footer.sticky-footer {
-    width: calc(100% - 250px);
   }
 }
 
 @media (min-width: 992px) {
   body.sidenav-toggled footer.sticky-footer {
-    width: calc(100% - 55px);
   }
 }

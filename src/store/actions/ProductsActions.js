@@ -3,11 +3,11 @@ import * as actionTypes from "./actionTypes";
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://192.168.100.37/"
+  baseURL: "http://127.0.0.1:8000/"
 });
 
 export const setLoading = () => ({
-  type: actionTypes.SET_MESSAGES_LOADING
+  type: actionTypes.SET_PRODUCTS_LOADING
 });
 
 export const fetchProducts = () => {
