@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 // Actions
 import * as actionCreators from "../store/actions";
 
-class RegistationForm extends Component {
+class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,12 +35,8 @@ class RegistationForm extends Component {
 
   submitHandler(e) {
     e.preventDefault();
-    const type = this.props.match.url.substring(1);
-    if (type === "login") {
-      this.props.login(this.state, this.props.history);
-    } else if (type === "signup") {
-      this.props.signup(this.state, this.props.history);
-    }
+
+    this.props.login(this.state, this.props.history);
   }
 
   render() {
@@ -108,13 +104,11 @@ class RegistationForm extends Component {
         </div>
         <div className="card-footer">
           <Link
-            to={type === "login" ? "/signup" : "/login"}
+            to={"/signup"}
             className="btn btn-small btn-link"
             // onClick={() => (authStore.errors = [])}
           >
-            {type === "login"
-              ? "register an account"
-              : "login with an existing account"}
+            register an account
           </Link>
         </div>
       </div>
@@ -124,9 +118,7 @@ class RegistationForm extends Component {
 
 const mapDispatchToProps = dispatch => ({
   login: (userData, history) =>
-    dispatch(actionCreators.login(userData, history)),
-  signup: (userData, history) =>
-    dispatch(actionCreators.signup(userData, history))
+    dispatch(actionCreators.login(userData, history))
 });
 const mapStateToProps = state => {
   return {
@@ -139,5 +131,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(RegistationForm)
+  )(LoginForm)
 );

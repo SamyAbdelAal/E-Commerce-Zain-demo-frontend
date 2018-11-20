@@ -6,7 +6,7 @@ import * as actionTypes from "./actionTypes";
 import { setErrors } from "./errors";
 
 const instance = axios.create({
-  baseURL: "https://api-chatr.herokuapp.com/"
+  baseURL: "http://127.0.0.1:8000/"
 });
 
 const setAuthToken = token => {
@@ -46,30 +46,30 @@ export const checkForExpiredToken = () => {
 export const login = (userData, history) => {
   return dispatch => {
     instance
-      .post("login/", userData)
+      .post("api/login/", userData)
       .then(res => res.data)
       .then(user => {
         const decodedUser = jwt_decode(user.token);
         setAuthToken(user.token);
         dispatch(setCurrentUser(decodedUser));
-        history.push("/channels/");
+        // history.push("/items");
       })
-      .catch(err => dispatch(setErrors(err.response.data)));
+      .catch(err => dispatch(setErrors(err.response)));
   };
 };
 
 export const signup = (userData, history) => {
   return dispatch => {
     instance
-      .post("signup/", userData)
+      .post("api/register/", userData)
       .then(res => res.data)
       .then(user => {
         const decodedUser = jwt_decode(user.token);
         setAuthToken(user.token);
         dispatch(setCurrentUser(decodedUser));
-        history.push("/channels/");
+        // history.push("/items/");
       })
-      .catch(err => dispatch(setErrors(err.response.data)));
+      .catch(err => console.log(err.response));
   };
 };
 

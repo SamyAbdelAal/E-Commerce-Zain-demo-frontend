@@ -8,7 +8,8 @@ import * as actionCreators from "./store/actions";
 import Welcome from "./components/Welcome";
 import NavBar from "./components/Navigation/NavBar";
 import Footer from "./components/Footer";
-import RegistrationForm from "./components/RegistrationForm";
+import LoginForm from "./components/LoginForm";
+import SignupForm from "./components/SignupForm";
 import ItemList from "./components/ItemList";
 import ItemDetail from "./components/ItemDetail";
 import SideNav from "./components/Navigation/SideNav";
@@ -26,7 +27,8 @@ class App extends Component {
 
         <Switch>
           <Route path="/welcome" component={Welcome} />
-          <Route path="/(login|signup)" component={RegistrationForm} />
+          <Route path="/login" component={LoginForm} />
+          <Route path="/signup" component={SignupForm} />
           <Route path="/items/:itemID" component={ItemDetail} />
 
           <Route path="/items" component={ItemList} />
