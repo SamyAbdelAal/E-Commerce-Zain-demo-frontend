@@ -1,7 +1,10 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  products: []
+  products: [],
+  filteredProducts: [],
+  loading: true,
+  cart: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -9,9 +12,22 @@ const reducer = (state = initialState, action) => {
     case actionTypes.FETCH_PRODUCTS:
       return {
         ...state,
-        products: action.payload
+        products: action.payload,
+        filteredProducts: action.payload,
+        loading: false
       };
-
+    case actionTypes.FILTER_PRODUCTS:
+      return {
+        ...state,
+        filteredProducts: state.products.filter(product => {
+          return `${product.name}`.toLowerCase().includes(action.payload);
+        })
+      };
+    case actionTypes.SET_PRODUCT_LOADING:
+      return {
+        ...state,
+        loading: true
+      };
     default:
       return state;
   }

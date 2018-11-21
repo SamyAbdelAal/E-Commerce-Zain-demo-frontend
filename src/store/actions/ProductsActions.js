@@ -7,11 +7,12 @@ const instance = axios.create({
 });
 
 export const setLoading = () => ({
-  type: actionTypes.SET_PRODUCTS_LOADING
+  type: actionTypes.SET_PRODUCT_LOADING
 });
 
 export const fetchProducts = () => {
   return dispatch => {
+    dispatch(setLoading());
     instance
       .get("/api/list/")
       .then(res => res.data)
@@ -22,5 +23,12 @@ export const fetchProducts = () => {
         })
       )
       .catch(err => alert(err));
+  };
+};
+
+export const filterProducts = query => {
+  return {
+    type: actionTypes.FILTER_PRODUCTS,
+    payload: query
   };
 };

@@ -1,12 +1,13 @@
 import { SET_ERRORS } from "../actions/actionTypes";
 
-const initialState = {};
+const initialState = { error: {} };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_ERRORS:
       return {
-        ...action.payload
+        ...state,
+        error: action.payload
       };
     default:
       return state;

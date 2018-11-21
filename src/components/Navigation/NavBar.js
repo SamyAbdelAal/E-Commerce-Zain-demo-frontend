@@ -19,7 +19,7 @@ class NavBar extends Component {
             src="https://www.kw.zain.com/zainkw-revamp-cms-theme/images/logo1.png"
             alt="Zain"
             data-pagespeed-url-hash="1127208787"
-            onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
+            onLoad="pagespeed.CriticalImages.checkImageForCriticality(this);"
             width="100px"
             style={{ cursor: "pointer" }}
           />

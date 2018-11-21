@@ -20,12 +20,17 @@ class SideNav extends React.Component {
   render() {
     return (
       <div>
-        <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" onClick={() => close()}>
+        <div id="mySidenav" className="sidenav">
+          <a
+            href="javascript:void(0)"
+            className="closebtn"
+            onClick={() => close()}
+          >
             &times;
           </a>
           <NavLink to="/welcome">Home</NavLink>
           <NavLink to="/items">Products</NavLink>
+          <NavLink to="/profile">Profile</NavLink>
           <a href="#">Clients</a>
           <a href="#">Contact</a>
         </div>

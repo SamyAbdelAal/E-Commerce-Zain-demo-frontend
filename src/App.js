@@ -6,12 +6,15 @@ import { connect } from "react-redux";
 import * as actionCreators from "./store/actions";
 // Components
 import Welcome from "./components/Welcome";
+import Homepage from "./components/homepage";
 import NavBar from "./components/Navigation/NavBar";
 import Footer from "./components/Footer";
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
 import ItemList from "./components/ItemList";
 import ItemDetail from "./components/ItemDetail";
+import UserProfile from "./components/UserProfile";
+import ItemDetail2 from "./components/ItemDetail2";
 import SideNav from "./components/Navigation/SideNav";
 
 class App extends Component {
@@ -27,9 +30,11 @@ class App extends Component {
 
         <Switch>
           <Route path="/welcome" component={Welcome} />
+          <Route path="/homepage" component={Homepage} />
           <Route path="/login" component={LoginForm} />
           <Route path="/signup" component={SignupForm} />
-          <Route path="/items/:itemID" component={ItemDetail} />
+          <Route path="/items/:itemID" component={ItemDetail2} />
+          <Route path="/profile" component={UserProfile} />
 
           <Route path="/items" component={ItemList} />
 
