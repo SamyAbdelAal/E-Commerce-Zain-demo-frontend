@@ -3,8 +3,7 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   products: [],
   filteredProducts: [],
-  loading: true,
-  cart: []
+  loading: true
 };
 
 const reducer = (state = initialState, action) => {

@@ -26,15 +26,4 @@ export const fetchProduct = itemID => {
   };
 };
 
-export const addProduct = (productID, item) => {
-  let load = {
-    productID: productID,
-    item: item
-  };
-  return {
-    type: actionTypes.ADD_PRODUCT,
-    payload: load
-  };
-};
-
 export default fetchProduct;

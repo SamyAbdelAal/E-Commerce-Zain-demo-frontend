@@ -2,18 +2,30 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   loading: true,
-  cart: [],
-  cartProducts: []
+  cart: []
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ADD_PRODUCT:
+      let newProduct = action.payload;
+      let cartItem = state.cart.find(cartItem => cartItem.id === newProduct.id);
+      let cart;
+      if (cartItem) {
+        cartItem.quantity = cartItem.quantity + newProduct.quantity;
+        cart = [...state.cart];
+      } else {
+        cart = state.cart.concat(newProduct);
+      }
       return {
         ...state,
-        cart: state.cart.concat(action.payload.productID),
-        cartProducts: state.cartProducts.concat(action.payload.item),
+        cart,
         loading: false
+      };
+    case actionTypes.REMOVE_ITEM:
+      return {
+        ...state,
+        cart: state.cart.filter(item => item !== action.payload)
       };
     case actionTypes.SET_PRODUCT_LOADING:
       return {

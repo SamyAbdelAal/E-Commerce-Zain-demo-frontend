@@ -4,15 +4,15 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 // import registerServiceWorker from "./registerServiceWorker";
 import { checkForExpiredToken } from "./store/actions";
-// import { fetchChannels } from "./store/actions";
+import { fetchProducts } from "./store/actions";
 // Components
 import App from "./App";
 
 // Store
 import store from "./store";
-//
+
 store.dispatch(checkForExpiredToken());
-// store.dispatch(fetchChannels());
+store.dispatch(fetchProducts());
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

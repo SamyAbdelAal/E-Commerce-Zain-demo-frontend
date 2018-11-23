@@ -7,7 +7,6 @@ import * as actionCreators from "../store/actions";
 
 class UserProfile extends Component {
   componentDidMount() {
-    console.log(this.props.match);
     this.props.getProfile(this.props.user.user_id);
   }
 
@@ -25,6 +24,7 @@ class UserProfile extends Component {
                   <div className="d-flex justify-content-start">
                     <div className="image-container">
                       <img
+                        alt="user"
                         src="http://placehold.it/150x150"
                         id="imgProfile"
                         style={{ width: "150px, height: 150px" }}
@@ -49,9 +49,8 @@ class UserProfile extends Component {
                       <h2
                         className="d-block"
                         style={{ fontSize: "1.5rem, font-weight: bold" }}
-                      >
-                        <h2>{this.props.user.username}</h2>
-                      </h2>
+                      />
+                      <h2>{this.props.user.username}</h2>
                     </div>
                     <div className="ml-auto">
                       <input
@@ -86,7 +85,6 @@ class UserProfile extends Component {
                         className="tab-pane fade show active"
                         id="basicInfo"
                         role="tabpanel"
-                        aria-pledby="basicInfo-tab"
                       >
                         <div className="row">
                           <div className="col-sm-3 col-md-2 col-5">
