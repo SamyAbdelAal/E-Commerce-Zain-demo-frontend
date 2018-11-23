@@ -123,7 +123,7 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => {
   return {
     user: state.auth.user,
-    errs: state.errors
+    errs: state.errors.error
   };
 };
 

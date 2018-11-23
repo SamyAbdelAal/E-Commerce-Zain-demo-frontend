@@ -14,7 +14,7 @@ export const fetchProduct = itemID => {
   return dispatch => {
     dispatch(setLoading());
     instance
-      .get(`api/${itemID}/detail/`)
+      .get(`api/${itemID}/detail/product/`)
       .then(res => res.data)
       .then(item => {
         dispatch({
@@ -23,6 +23,17 @@ export const fetchProduct = itemID => {
         });
       })
       .catch(err => console.error(err));
+  };
+};
+
+export const addProduct = (productID, item) => {
+  let load = {
+    productID: productID,
+    item: item
+  };
+  return {
+    type: actionTypes.ADD_PRODUCT,
+    payload: load
   };
 };
 

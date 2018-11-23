@@ -54,7 +54,7 @@ export const login = (userData, history) => {
         dispatch(setCurrentUser(decodedUser));
         // history.push("/items");
       })
-      .catch(err => dispatch(setErrors(err.response)));
+      .catch(err => dispatch(setErrors(err.response.data)));
   };
 };
 
@@ -69,7 +69,7 @@ export const signup = (userData, history) => {
         dispatch(setCurrentUser(decodedUser));
         // history.push("/items/");
       })
-      .catch(err => console.log(err.response));
+      .catch(err => dispatch(setErrors(err.response.data)));
   };
 };
 

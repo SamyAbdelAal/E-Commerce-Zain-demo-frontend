@@ -6,6 +6,7 @@ import { open } from "../../functions";
 // Actions
 import * as actionCreators from "../../store/actions";
 // Components
+import CheckoutPage from "../CheckoutPage";
 
 class NavBar extends Component {
   render() {
@@ -19,7 +20,7 @@ class NavBar extends Component {
             src="https://www.kw.zain.com/zainkw-revamp-cms-theme/images/logo1.png"
             alt="Zain"
             data-pagespeed-url-hash="1127208787"
-            onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
+            onLoad="pagespeed.CriticalImages.checkImageForCriticality(this);"
             width="100px"
             style={{ cursor: "pointer" }}
           />
@@ -49,6 +50,7 @@ class NavBar extends Component {
         ) : (
           <Link to="/login">login</Link>
         )}
+        <Link to="/checkout">checkout</Link>
       </nav>
     );
   }
