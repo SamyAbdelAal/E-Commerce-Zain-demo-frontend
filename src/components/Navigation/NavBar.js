@@ -6,6 +6,7 @@ import { open } from "../../functions";
 // Actions
 import * as actionCreators from "../../store/actions";
 // Components
+import CheckoutPage from "../CheckoutPage";
 
 class NavBar extends Component {
   render() {
@@ -49,6 +50,7 @@ class NavBar extends Component {
         ) : (
           <Link to="/login">login</Link>
         )}
+        <Link to="/checkout">checkout</Link>
       </nav>
     );
   }

@@ -21,9 +21,10 @@ const reducer = (state = initialState, action) => {
         ...state,
         filteredProducts: state.products.filter(product => {
           return `${product.name}`.toLowerCase().includes(action.payload);
-        })
+        }),
+        loading: false
       };
-    case actionTypes.SET_PRODUCT_LOADING:
+    case actionTypes.SET_PRODUCTS_LOADING:
       return {
         ...state,
         loading: true

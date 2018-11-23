@@ -6,11 +6,23 @@ import { connect } from "react-redux";
 import * as actionCreators from "../store/actions";
 
 class ItemDetail extends Component {
+  // constructor(props){
+  //   super(props)
+  // }
   componentDidMount() {
     console.log(this.props.match);
     this.props.getProduct(this.props.match.params.itemID);
   }
 
+  handleAdd() {
+    // const { drink, option } = this.state;
+    // const { list } = this.props.cart;
+    let product = {
+      id: this.props.item.id,
+      quantity: 1
+    };
+    this.props.addProduct(product, this.props.item);
+  }
   render() {
     if (this.props.loading) {
       return <Loading />;
@@ -81,7 +93,7 @@ class ItemDetail extends Component {
                   </div>
                   <p class="product-description">{item.description}</p>
                   <h4 class="price">
-                    current price:{" "}
+                    current price:
                     <span>
                       {item.price}
                       KD
@@ -117,7 +129,11 @@ class ItemDetail extends Component {
                     <span class="color blue" />
                   </h5>
                   <div class="action">
-                    <button class="add-to-cart btn btn-default" type="button">
+                    <button
+                      class="add-to-cart btn btn-default"
+                      onClick={() => this.handleAdd()}
+                      type="button"
+                    >
                       add to cart
                     </button>
                     <button class="like btn btn-default" type="button">
@@ -142,7 +158,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getProduct: itemID => dispatch(actionCreators.fetchProduct(itemID))
+    getProduct: itemID => dispatch(actionCreators.fetchProduct(itemID)),
+    addProduct: (product, item) =>
+      dispatch(actionCreators.addProduct(product, item))
   };
 };
 

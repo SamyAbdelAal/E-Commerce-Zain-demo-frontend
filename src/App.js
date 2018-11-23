@@ -15,6 +15,7 @@ import ItemList from "./components/ItemList";
 import ItemDetail from "./components/ItemDetail";
 import UserProfile from "./components/UserProfile";
 import ItemDetail2 from "./components/ItemDetail2";
+import CheckoutPage from "./components/CheckoutPage";
 import SideNav from "./components/Navigation/SideNav";
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
           <Route path="/signup" component={SignupForm} />
           <Route path="/items/:itemID" component={ItemDetail2} />
           <Route path="/profile" component={UserProfile} />
+          <Route path="/checkout" component={CheckoutPage} />
 
           <Route path="/items" component={ItemList} />
 
