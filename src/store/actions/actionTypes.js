@@ -12,3 +12,5 @@ export const ADD_PRODUCT = "ADD_PRODUCT";
 export const POST_CHECKOUT = "POST_CHECKOUT";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const FETCH_ADDRESSES = "FETCH_ADDRESSES";
+export const CREATE_ADDRESS = "FETCH_ADDRESS";
+export const SET_ADDRESS = "SET_ADDRESS";

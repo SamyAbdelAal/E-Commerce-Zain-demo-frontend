@@ -8,10 +8,7 @@ import * as actionCreators from "../store/actions";
 class AddressForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      username: "",
-      password: ""
-    };
+    this.state = {};
 
     this.changeHandler = this.changeHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
@@ -36,119 +33,130 @@ class AddressForm extends Component {
   submitHandler(e) {
     e.preventDefault();
 
-    this.props.login(this.state, this.props.history);
+    this.props.createAddress(this.state);
   }
 
   render() {
     const type = this.props.match.url.substring(1);
     return (
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-          <form class="form-horizontal" role="form">
+      <div className="row">
+        <div className="col-md-4 col-md-offset-4">
+          <form className="form-horizontal" role="form">
             <fieldset>
               <legend>Address Details</legend>
 
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">
-                  Area
-                </label>
-                <div class="col-sm-4">
-                  <input type="text" placeholder="Area" class="form-control" />
+              <div className="form-group">
+                <div className="form-group">
+                  <label
+                    className="col-sm-2
+                 control-label"
+                    for="textinput"
+                  >
+                    Governorate*
+                  </label>
+                  <div className="col">
+                    <select placeholder="Governorate " className="form-control">
+                      <option value="" selected="selected">
+                        (please select a governorate)
+                      </option>
+                      <option value="AA">Al Asimah</option>
+                      <option value="H">Hawalli</option>
+                      <option value="M">Mubarak Al-Kabeer</option>
+                      <option value="A">Al-Ahmadi</option>
+                      <option value="F">Farwaniya</option>
+                      <option value="J">Al-Jahra</option>
+                    </select>
+                  </div>
                 </div>
-                <label class="col-sm-2 control-label" for="textinput">
-                  Block
+
+                <label className="col-sm-2 control-label" for="textinput">
+                  Area*
                 </label>
-                <div class="col-sm-4">
-                  <input type="text" placeholder="Block" class="form-control" />
+                <div className="col">
+                  <input
+                    type="text"
+                    placeholder="Area"
+                    className="form-control"
+                    onChange={e => this.changeHandler(e)}
+                  />
                 </div>
-                <label class="col-sm-2 control-label" for="textinput">
-                  Street
+                <label className="col-sm-2 control-label" for="textinput">
+                  Block*
                 </label>
-                <div class="col-sm-4">
+                <div className="col">
+                  <input
+                    type="text"
+                    placeholder="Block"
+                    className="form-control"
+                    onChange={e => this.changeHandler(e)}
+                  />
+                </div>
+                <label className="col-sm-2 control-label" for="textinput">
+                  Street*
+                </label>
+                <div className="col">
                   <input
                     type="text"
                     placeholder="Street"
-                    class="form-control"
+                    className="form-control"
+                    onChange={e => this.changeHandler(e)}
                   />
                 </div>
-                <label class="col-sm-2 control-label" for="textinput">
-                  Building
+                <label className="col-sm-2 control-label" for="textinput">
+                  Building*
                 </label>
-                <div class="col-sm-4">
+                <div className="col">
                   <input
                     type="text"
                     placeholder="Building or House"
-                    class="form-control"
+                    className="form-control"
+                    onChange={e => this.changeHandler(e)}
                   />
                 </div>
-                <label class="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" for="textinput">
                   Floor
                 </label>
-                <div class="col-sm-4">
-                  <input type="text" placeholder="Floor" class="form-control" />
+                <div className="col">
+                  <input
+                    type="text"
+                    placeholder="Floor"
+                    className="form-control"
+                    onChange={e => this.changeHandler(e)}
+                  />
                 </div>
-                <label class="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" for="textinput">
                   Extra directions
                 </label>
-                <div class="col-sm-4">
+                <div className="col">
                   <input
                     type="text"
                     placeholder="Extra directions"
-                    class="form-control"
+                    className="form-control"
+                    onChange={e => this.changeHandler(e)}
                   />
                 </div>
               </div>
 
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">
-                  Governorate
-                </label>
-                <div class="col-sm-4">
-                  <select placeholder="Governorate " class="form-control">
-                    <option value="" selected="selected">
-                      (please select a country)
-                    </option>
-                    <option value="">Al Asimah</option>
-                    <option value="">Hawalli</option>
-                    <option value="">Mubarak Al-Kabeer</option>
-                    <option value="">Al-Ahmadi</option>
-                    <option value="">Farwaniya</option>
-                    <option value="">Al-Jahra</option>
-                  </select>
-                </div>
-
-                <label class="col-sm-2 control-label" for="textinput">
-                  Postcode
-                </label>
-                <div class="col-sm-4">
-                  <input
-                    type="text"
-                    placeholder="Post Code"
-                    class="form-control"
-                  />
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">
+              {/* <div className="form-group">
+                <label className="col-sm-2 control-label" for="textinput">
                   Country
                 </label>
-                <div class="col-sm-10">
+                <div className="col-sm-10">
                   <input
                     type="text"
                     placeholder="Country"
-                    class="form-control"
+                    className="form-control"
                   />
                 </div>
-              </div>
+              </div> */}
 
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <div class="pull-right">
-                    <button type="submit" class="btn btn-default">
+              <div className="form-group">
+                <div className="col-sm-offset-2 col-sm-10">
+                  <div className="pull-right">
+                    <button type="submit" className="btn btn-default">
                       Cancel
                     </button>
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" className="btn btn-primary">
                       Save
                     </button>
                   </div>
@@ -163,8 +171,7 @@ class AddressForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  login: (userData, history) =>
-    dispatch(actionCreators.login(userData, history))
+  createAddress: addressDetail => dispatch(actionCreators.createAddress)
 });
 const mapStateToProps = state => {
   return {

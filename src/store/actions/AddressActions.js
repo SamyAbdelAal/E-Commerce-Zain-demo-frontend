@@ -10,6 +10,21 @@ export const setLoading = () => ({
   type: actionTypes.SET_PRODUCTS_LOADING
 });
 
+export const createAddress = addressDetail => {
+  return dispatch => {
+    instance
+      .post("api/address/create/", addressDetail)
+      .then(res => res.data)
+      .then(addressDetail => {
+        dispatch({
+          type: actionTypes.CREATE_ADDRESS,
+          payload: addressDetail
+        });
+      })
+      .catch(err => console.error(err));
+  };
+};
+
 export const fetchAddresses = user => {
   return dispatch => {
     dispatch(setLoading());

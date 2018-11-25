@@ -7,13 +7,17 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_ADDRESSES:
-      console.log(action.payload.addresses);
       const address = action.payload.addresses;
       return {
         ...state,
         addresses: address.filter(
           address => address.user === action.payload.user.user_id
         )
+      };
+    case actionTypes.CREATE_ADDRESS:
+      return {
+        ...state,
+        addresses: action.payload.concate(action.payload)
       };
     default:
       return state;

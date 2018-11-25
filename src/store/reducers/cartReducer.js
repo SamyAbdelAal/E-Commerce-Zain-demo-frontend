@@ -3,7 +3,7 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   loading: true,
   cart: [],
-  address: 1
+  address: 0
 };
 
 const reducer = (state = initialState, action) => {
@@ -32,12 +32,18 @@ const reducer = (state = initialState, action) => {
     case actionTypes.POST_CHECKOUT:
       return {
         ...state,
-        cart: []
+        cart: [],
+        address: 0
       };
     case actionTypes.SET_PRODUCT_LOADING:
       return {
         ...state,
         loading: true
+      };
+    case actionTypes.SET_ADDRESS:
+      return {
+        ...state,
+        address: action.payload
       };
     default:
       return state;

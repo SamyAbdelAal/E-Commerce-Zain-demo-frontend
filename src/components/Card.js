@@ -20,9 +20,6 @@ class Card extends Component {
             <div className="info">
               <div className="row">
                 <div className="price-details col-md-6">
-                  <p className="details">
-                    Lorem ipsum dolor sit amet, consectetur..
-                  </p>
                   <h1>{item.name}</h1>
                   <span className="price-new">{item.price} KD</span>
                 </div>

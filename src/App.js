@@ -20,7 +20,8 @@ class App extends Component {
     if (this.props.user) this.props.fetchAddresses(this.props.user);
   }
   componentDidUpdate(prevProps) {
-    if (this.props.user) this.props.fetchAddresses(this.props.user);
+    if (this.props.user !== prevProps.user)
+      this.props.fetchAddresses(this.props.user);
   }
   render() {
     return (
