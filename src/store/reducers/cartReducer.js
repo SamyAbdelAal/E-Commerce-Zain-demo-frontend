@@ -2,7 +2,8 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   loading: true,
-  cart: []
+  cart: [],
+  address: 1
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,6 +28,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         cart: state.cart.filter(item => item !== action.payload)
+      };
+    case actionTypes.POST_CHECKOUT:
+      return {
+        ...state,
+        cart: []
       };
     case actionTypes.SET_PRODUCT_LOADING:
       return {

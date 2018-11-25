@@ -10,15 +10,15 @@ const instance = axios.create({
 //   type: actionTypes.SET_PRODUCTS_LOADING
 // });
 
-export const checkout = cart => {
+export const checkout = cartWithAddress => {
   return dispatch => {
     instance
-      .post(`api/create/order/`, cart)
+      .post("api/order/create/", cartWithAddress)
       .then(res => res.data)
-      .then(cart => {
+      .then(cartWithAddress => {
         dispatch({
           type: actionTypes.POST_CHECKOUT,
-          payload: cart
+          payload: cartWithAddress
         });
       })
       .catch(err => console.error(err));

@@ -7,7 +7,12 @@ import * as actionCreators from "../store/actions";
 class Cart extends Component {
   handleCheckout() {
     if (this.props.user) {
-      this.props.checkout(this.props.cart);
+      const cartWithAddress = {
+        address: this.props.address,
+        cart: this.props.cart
+      };
+      console.log(cartWithAddress);
+      this.props.checkout(cartWithAddress);
     } else {
       this.props.history.push("/login");
     }
@@ -82,6 +87,7 @@ class Cart extends Component {
 
 const mapStateToProps = state => ({
   cart: state.cart.cart,
+  address: state.cart.address,
   user: state.auth.user
 });
 

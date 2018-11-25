@@ -10,25 +10,18 @@ export const setLoading = () => ({
   type: actionTypes.SET_PRODUCTS_LOADING
 });
 
-export const fetchProducts = () => {
+export const fetchAddresses = user => {
   return dispatch => {
     dispatch(setLoading());
     instance
-      .get("/api/product/list/")
+      .get("/api/address/list/")
       .then(res => res.data)
-      .then(products =>
-        dispatch({
-          type: actionTypes.FETCH_PRODUCTS,
-          payload: products
-        })
-      )
+      .then(addresses => {
+        return dispatch({
+          type: actionTypes.FETCH_ADDRESSES,
+          payload: { addresses, user }
+        });
+      })
       .catch(err => alert(err));
-  };
-};
-
-export const filterProducts = query => {
-  return {
-    type: actionTypes.FILTER_PRODUCTS,
-    payload: query
   };
 };

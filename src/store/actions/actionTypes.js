@@ -11,3 +11,4 @@ export const FILTER_PRODUCTS = "FILTER_PRODUCTS";
 export const ADD_PRODUCT = "ADD_PRODUCT";
 export const POST_CHECKOUT = "POST_CHECKOUT";
 export const REMOVE_ITEM = "REMOVE_ITEM";
+export const FETCH_ADDRESSES = "FETCH_ADDRESSES";
