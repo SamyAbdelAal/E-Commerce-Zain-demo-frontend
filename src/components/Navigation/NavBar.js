@@ -46,9 +46,13 @@ class NavBar extends Component {
             logout {this.props.user.username}
           </button>
         ) : (
-          <Link to="/login">login</Link>
+          <Link className="btn btn-outline-success" to="/login">
+            login
+          </Link>
         )}
-        <Link to="/checkout">checkout</Link>
+        <Link className="btn btn-outline-primary" to="/checkout">
+          checkout
+        </Link>
       </nav>
     );
   }

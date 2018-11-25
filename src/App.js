@@ -6,6 +6,7 @@ import NavBar from "./components/Navigation/NavBar";
 import Footer from "./components/Footer";
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
+import AddressForm from "./components/AddressForm";
 import ItemList from "./components/ItemList";
 import UserProfile from "./components/UserProfile";
 import ItemDetail from "./components/ItemDetail";
@@ -21,6 +22,7 @@ class App extends Component {
         <Switch>
           <Route path="/welcome" component={Welcome} />
           <Route path="/login" component={LoginForm} />
+          <Route path="/address" component={AddressForm} />
           <Route path="/signup" component={SignupForm} />
           <Route path="/items/:itemID" component={ItemDetail} />
           <Route path="/profile" component={UserProfile} />

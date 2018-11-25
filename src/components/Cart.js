@@ -1,12 +1,16 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import CartItem from "./CartItem";
 import * as actionCreators from "../store/actions";
 
 class Cart extends Component {
   handleCheckout() {
-    this.props.checkout(this.props.cart);
+    if (this.props.user) {
+      this.props.checkout(this.props.cart);
+    } else {
+      this.props.history.push("/login");
+    }
   }
   render() {
     const cartItems = this.props.cart.map(order => (
@@ -39,7 +43,7 @@ class Cart extends Component {
                         className="btn btn-primary btn-sm btn-block"
                         to="/items"
                       >
-                        <span className="glyphicon glyphicon-share-alt" />{" "}
+                        <span className="glyphicon glyphicon-share-alt" />
                         Continue shopping
                       </Link>
                     </div>
@@ -77,7 +81,8 @@ class Cart extends Component {
 }
 
 const mapStateToProps = state => ({
-  cart: state.cart.cart
+  cart: state.cart.cart,
+  user: state.auth.user
 });
 
 const mapDispatchToProps = dispatch => {

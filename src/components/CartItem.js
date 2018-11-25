@@ -4,6 +4,25 @@ import { connect } from "react-redux";
 import * as actionCreators from "../store/actions";
 
 class CartItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      quantity: 1
+    };
+
+    this.changeHandler = this.changeHandler.bind(this);
+  }
+  changeHandler(e) {
+    this.setState({ [e.target.name]: e.target.value });
+    let product = {
+      id: this.props.order.item.id,
+      item: this.props.order.item,
+      quantity: this.state.quantity
+    };
+    this.props.addProduct(product);
+  }
+
+  handleAdd() {}
   render() {
     const order = this.props.order;
     return (
@@ -41,11 +60,13 @@ class CartItem extends Component {
                         </strong>
                       </h6>
                     </div>
-                    <div className="col-xs-4">
+                    <div className="col-xs-6">
                       <input
-                        type="text"
-                        className="form-control input-sm"
+                        type="number"
+                        className="form-control input"
+                        name="quantity"
                         defaultValue={order.quantity}
+                        onChange={this.changeHandler}
                       />
                     </div>
                     <div className="col-xs-2">
@@ -72,7 +93,8 @@ class CartItem extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     removeItemFromCart: item =>
-      dispatch(actionCreators.removeItemFromCart(item))
+      dispatch(actionCreators.removeItemFromCart(item)),
+    addProduct: product => dispatch(actionCreators.addProduct(product))
   };
 };
 

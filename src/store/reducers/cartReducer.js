@@ -12,7 +12,8 @@ const reducer = (state = initialState, action) => {
       let cartItem = state.cart.find(cartItem => cartItem.id === newProduct.id);
       let cart;
       if (cartItem) {
-        cartItem.quantity = cartItem.quantity + newProduct.quantity;
+        cartItem.quantity =
+          parseInt(cartItem.quantity) + parseInt(newProduct.quantity);
         cart = [...state.cart];
       } else {
         cart = state.cart.concat(newProduct);

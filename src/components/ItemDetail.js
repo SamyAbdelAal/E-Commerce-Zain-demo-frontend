@@ -6,15 +6,27 @@ import { connect } from "react-redux";
 import * as actionCreators from "../store/actions";
 
 class ItemDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      quantity: 1
+    };
+
+    this.changeHandler = this.changeHandler.bind(this);
+  }
   componentDidMount() {
     this.props.getProduct(this.props.match.params.itemID);
+  }
+
+  changeHandler(e) {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   handleAdd() {
     let product = {
       id: this.props.item.id,
       item: this.props.item,
-      quantity: 1
+      quantity: this.state.quantity
     };
     this.props.addProduct(product);
   }
@@ -95,7 +107,7 @@ class ItemDetail extends Component {
                     </span>
                   </h4>
                   <p className="vote">
-                    <strong>91%</strong> of buyers enjoyed this product!{" "}
+                    <strong>91%</strong> of buyers enjoyed this product!
                     <strong>(87 votes)</strong>
                   </p>
                   <h5 className="sizes">
@@ -126,7 +138,15 @@ class ItemDetail extends Component {
                     />
                     <span className="color green" />
                     <span className="color blue" />
+                    <input
+                      type="number"
+                      name="quantity"
+                      className="form-control input-sm"
+                      defaultValue={1}
+                      onChange={this.changeHandler}
+                    />
                   </h5>
+
                   <div className="action">
                     <button
                       className="add-to-cart btn btn-default"
