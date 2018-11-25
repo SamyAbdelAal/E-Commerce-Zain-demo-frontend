@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 
 class Homepage extends Component {
   render() {
-    const itemCards = this.props.products.map(item => (
-      <Card key={item.id} item={item} />
-    ));
+    const itemCards = this.props.products
+      .slice(0, 3)
+      .map(item => <Card key={item.id} item={item} />);
     return (
       <div>
         <div className="upcoming py-5">
-          <div className="container">
+          <div className="container Homepage">
             <div className="row pb-4 text-center">
               <div className="col-md-12">
                 <h2>Upcoming & Latest cars</h2>

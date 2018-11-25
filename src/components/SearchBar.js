@@ -9,7 +9,14 @@ import * as actionCreators from "../store/actions/";
 class SearchBar extends Component {
   render() {
     return (
-      <div className="form-group col-lg-6 col-12 mx-auto">
+      <div
+        className="form-group col-lg-6 col-12 mx-auto"
+        style={{
+          maxWidth: "100%",
+          minWidth: "140px",
+          padding: "0"
+        }}
+      >
         <div className="input-group my-3">
           <input
             className="form-control"

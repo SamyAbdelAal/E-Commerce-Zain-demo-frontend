@@ -26,7 +26,7 @@ class Cart extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-xs-8">
+          <div className="col">
             <div className="panel panel-info">
               <div className="panel-heading">
                 <div className="panel-title">

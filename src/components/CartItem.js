@@ -28,18 +28,18 @@ class CartItem extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-xs-8">
+          <div className="col">
             <div className="panel panel-info">
               <div className="panel-body">
                 <div className="row">
-                  <div className="col-xs-2">
+                  <div className="col-md-3">
                     <img
                       className="img-responsive"
                       alt="item"
                       src={order.item.img}
                     />
                   </div>
-                  <div className="col-xs-4">
+                  <div className="col">
                     <Link to={`/items/${order.id}`}>
                       <h4 className="item-name">
                         <strong>{order.item.name}</strong>
@@ -51,8 +51,8 @@ class CartItem extends Component {
                       </h4>
                     </div>
                   </div>
-                  <div className="col-xs-6">
-                    <div className="col-xs-6 text-right">
+                  <div className="col">
+                    <div className="col text-right">
                       <h6>
                         <strong>
                           {order.item.price}

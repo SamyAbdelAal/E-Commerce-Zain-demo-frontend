@@ -16,7 +16,7 @@ class NavBar extends Component {
       >
         <Link className="navbar-brand" to="/welcome">
           <img
-            src="https://www.kw.zain.com/zainkw-revamp-cms-theme/images/logo1.png"
+            src="https://www.kw.zain.com/o/zainkw-revamp-cms-theme/images/logo1.png"
             alt="Zain"
             data-pagespeed-url-hash="1127208787"
             width="100px"
