@@ -1,9 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actionCreators from "../store/actions";
 
 // Components
 import Loading from "./Loading";
-import { connect } from "react-redux";
-import * as actionCreators from "../store/actions";
 
 class ItemDetail extends Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class ItemDetail extends Component {
     } else {
       const item = this.props.item;
       return (
-        <div className="container">
+        <div className="container" style={{ maxWidth: "100%" }}>
           <div className="card">
             <div className="container-fliud">
               <div className="wrapper row">

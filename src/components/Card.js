@@ -1,38 +1,46 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import * as actionCreators from "../store/actions";
+import { connect } from "react-redux";
 
 class Card extends Component {
+  constructor(props) {
+    super(props);
+    this.handleAdd = this.handleAdd.bind(this);
+  }
+  handleAdd() {
+    let product = {
+      id: this.props.item.id,
+      item: this.props.item,
+      quantity: 1
+    };
+    this.props.addProduct(product);
+  }
   render() {
     const item = this.props.item;
     return (
-      <div className="col-sm-3">
-        <Link to={`/items/${item.id}`}>
-          <article className="col-item">
-            <div className="photo">
-              <div className="options-cart-round">
-                <button className="btn btn-default" title="Add to cart">
-                  <span className="fa fa-shopping-cart" />
-                </button>
-              </div>
-
-              <img src={item.img} className="img-responsive" alt="Product" />
-            </div>
-            <div className="info">
-              <div className="row">
-                <div className="price-details col-md-6">
-                  <p className="details">
-                    Lorem ipsum dolor sit amet, consectetur..
-                  </p>
-                  <h1>{item.name}</h1>
-                  <span className="price-new">{item.price} KD</span>
-                </div>
-              </div>
-            </div>
-          </article>
-        </Link>
+      <div class="card" style={{ width: "400px" }}>
+        <img class="card-img-top" src={item.img} alt="Card" />
+        <div class="card-body">
+          <h4 class="card-title">{item.name}</h4>
+          <p class="card-text">{item.price} KD</p>
+          <Link to={`/items/${item.id}`} class="btn btn-primary">
+            See Details
+          </Link>
+          <button className="btn btn-success" onClick={() => this.handleAdd()}>
+            Add Item to cart
+          </button>
+        </div>
       </div>
     );
   }
 }
-
-export default Card;
+const mapDispatchToProps = dispatch => {
+  return {
+    addProduct: product => dispatch(actionCreators.addProduct(product))
+  };
+};
+export default connect(
+  null,
+  mapDispatchToProps
+)(Card);
