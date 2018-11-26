@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 // Components
 import Loading from "./Loading";
@@ -31,12 +32,14 @@ class UserProfile extends Component {
                         className="img-thumbnail"
                       />
                       <div className="middle">
-                        <input
+                        <Link
+                          to="/profile/update/"
                           type="button"
                           className="btn btn-secondary"
-                          id="btnChangePicture"
-                          value="Change"
-                        />
+                          id="btnUpdate"
+                        >
+                          Update profile
+                        </Link>
                         <input
                           type="file"
                           style={{ display: "none" }}
@@ -90,7 +93,9 @@ class UserProfile extends Component {
                           <div className="col-sm-3 col-md-2 col-5">
                             <p style={{ fontWeight: "bold" }}>Full Name</p>
                           </div>
-                          <div className="col-md-8 col-6">{profile.name}</div>
+                          <div className="col-md-8 col-6">
+                            {profile.firstname} {profile.lastname}
+                          </div>
                         </div>
                         <hr />
 
@@ -118,9 +123,9 @@ class UserProfile extends Component {
                         <hr />
                         <div className="row">
                           <div className="col-sm-3 col-md-2 col-5">
-                            <p style={{ fontWeight: "bold" }}>Something</p>
+                            <p style={{ fontWeight: "bold" }}>Phone Number</p>
                           </div>
-                          <div className="col-md-8 col-6">Something</div>
+                          <div className="col-md-8 col-6">{profile.number}</div>
                         </div>
                         <hr />
                       </div>

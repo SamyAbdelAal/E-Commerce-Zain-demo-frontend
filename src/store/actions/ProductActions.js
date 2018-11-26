@@ -14,7 +14,7 @@ export const fetchProduct = itemID => {
   return dispatch => {
     dispatch(setLoading());
     instance
-      .get(`api/${itemID}/detail/product/`)
+      .get(`api/product/${itemID}/detail/`)
       .then(res => res.data)
       .then(item => {
         dispatch({

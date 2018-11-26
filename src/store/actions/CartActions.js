@@ -13,7 +13,7 @@ const instance = axios.create({
 export const checkout = cart => {
   return dispatch => {
     instance
-      .post(`api/create/order/`, cart)
+      .post(`api/order/create/`, cart)
       .then(res => res.data)
       .then(cart => {
         dispatch({

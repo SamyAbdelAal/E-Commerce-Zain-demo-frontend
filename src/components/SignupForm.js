@@ -10,10 +10,7 @@ class SignupForm extends Component {
     super(props);
     this.state = {
       username: "",
-      email: "",
-      password: "",
-      first_name: "",
-      last_name: ""
+      password: ""
     };
 
     this.changeHandler = this.changeHandler.bind(this);
@@ -94,66 +91,7 @@ class SignupForm extends Component {
                 </div>
               )}
             </div>
-            <div className="form-group">
-              <input
-                className="form-control"
-                type="email"
-                placeholder="Email"
-                name="email"
-                required
-                onChange={this.changeHandler}
-              />
-              {this.props.errs.password && (
-                <div className="alert alert-danger">
-                  {this.props.errs.password}
-                </div>
-              )}
-              {this.props.errs.non_field_errors && (
-                <div className="alert alert-danger">
-                  {this.props.errs.non_field_errors}
-                </div>
-              )}
-            </div>
-            <div className="form-group">
-              <input
-                className="form-control"
-                type="text"
-                placeholder="First Name"
-                name="first_name"
-                required
-                onChange={this.changeHandler}
-              />
-              {this.props.errs.password && (
-                <div className="alert alert-danger">
-                  {this.props.errs.password}
-                </div>
-              )}
-              {this.props.errs.non_field_errors && (
-                <div className="alert alert-danger">
-                  {this.props.errs.non_field_errors}
-                </div>
-              )}
-            </div>
-            <div className="form-group">
-              <input
-                className="form-control"
-                type="text"
-                placeholder="Last Name"
-                name="last_name"
-                required
-                onChange={this.changeHandler}
-              />
-              {this.props.errs.password && (
-                <div className="alert alert-danger">
-                  {this.props.errs.password}
-                </div>
-              )}
-              {this.props.errs.non_field_errors && (
-                <div className="alert alert-danger">
-                  {this.props.errs.non_field_errors}
-                </div>
-              )}
-            </div>
+
             <input
               className="btn btn-primary"
               type="submit"
@@ -184,7 +122,7 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => {
   return {
     user: state.auth.user,
-    errs: state.errors
+    errs: state.errors.error
   };
 };
 

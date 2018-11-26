@@ -44,6 +44,8 @@ export const checkForExpiredToken = () => {
 };
 
 export const login = (userData, history) => {
+  console.log(userData);
+
   return dispatch => {
     instance
       .post("api/login/", userData)
@@ -52,7 +54,7 @@ export const login = (userData, history) => {
         const decodedUser = jwt_decode(user.token);
         setAuthToken(user.token);
         dispatch(setCurrentUser(decodedUser));
-        // history.push("/items");
+        history.push("/items");
       })
       .catch(err => dispatch(setErrors(err.response.data)));
   };
@@ -64,17 +66,19 @@ export const signup = (userData, history) => {
       .post("api/register/", userData)
       .then(res => res.data)
       .then(user => {
-        const decodedUser = jwt_decode(user.token);
-        setAuthToken(user.token);
-        dispatch(setCurrentUser(decodedUser));
-        // history.push("/items/");
+        // const decodedUser = jwt_decode(user.token);
+        // setAuthToken(user.token);
+        dispatch(login(userData, history));
       })
-      .catch(err => dispatch(setErrors(err.response.data)));
+      .catch(err => {
+        if (err.response) dispatch(setErrors(err.response.data));
+      });
   };
 };
 
-export const logout = () => {
+export const logout = dispatch => {
   setAuthToken();
+  dispatch(setErrors());
   return setCurrentUser();
 };
 

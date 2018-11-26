@@ -4,7 +4,7 @@ export { setErrors } from "./errors";
 
 export { fetchProduct } from "./ProductActions";
 
-export { fetchUserProfile } from "./userProfileActions";
+export { fetchUserProfile, updateUserProfile } from "./userProfileActions";
 
 export { fetchProducts, filterProducts } from "./ProductsActions";
 
