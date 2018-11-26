@@ -14,12 +14,27 @@ export const fetchUserProfile = userID => {
   return dispatch => {
     dispatch(setLoading());
     instance
-      .get(`api/profile/${userID}`)
+      .get(`api/profile/${userID}/`)
       .then(res => res.data)
       .then(profile => {
         dispatch({
           type: actionTypes.FETCH_USER_PROFILE,
           payload: profile
+        });
+      })
+      .catch(err => console.error(err));
+  };
+};
+
+export const updateUserProfile = (profileInfo, userID) => {
+  return dispatch => {
+    instance
+      .put(`api/profile/${userID}/update/`, profileInfo)
+      .then(res => res.data)
+      .then(profile => {
+        dispatch({
+          type: actionTypes.UPDATE_USER_PROFILE,
+          payload: profileInfo
         });
       })
       .catch(err => console.error(err));
