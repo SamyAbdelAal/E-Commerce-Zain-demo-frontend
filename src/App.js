@@ -15,14 +15,25 @@ import UserProfile from "./components/UserProfile";
 import ItemDetail from "./components/ItemDetail";
 import Cart from "./components/Cart";
 import ProfileUpdate from "./components/ProfileUpdate";
+import OrderList from "./components/OrderList";
 import SideNav from "./components/Navigation/SideNav";
+import * as actionCreators from "./store/actions";
+import { connect } from "react-redux";
 
 class App extends Component {
   componentDidMount() {
-    if (this.props.user) this.props.getProfile(this.props.user.user_id);
+    if (this.props.user) {
+      this.props.fetchAddresses();
+      this.props.fetchOrders();
+      this.props.getProfile(this.props.user.user_id);
+    }
   }
-  componentDidUpdate() {
-    if (this.props.user) this.props.getProfile(this.props.user.user_id);
+  componentDidUpdate(prevProps) {
+    if (this.props.user !== prevProps.user) {
+      this.props.fetchAddresses();
+      this.props.fetchOrders();
+      this.props.getProfile(this.props.user.user_id);
+    }
   }
   render() {
     return (
@@ -37,9 +48,10 @@ class App extends Component {
           <Route path="/items/:itemID" component={ItemDetail} />
           <Route path="/profile/update" component={ProfileUpdate} />
           <Route path="/profile" component={UserProfile} />
-          <Route path="/checkout" component={Cart} />
+          <Route path="/cart" component={Cart} />
           <Route path="/items" component={ItemList} />
-
+          <Route path="/orders" component={OrderList} />
+          <Route path="/orders/:orderID" component={OrderList} />
           <Redirect to="/welcome" />
         </Switch>
         <Footer />
@@ -47,12 +59,16 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  user: state.auth.user
+
+const mapDispatchToProps = dispatch => ({
+  fetchAddresses: () => dispatch(actionCreators.fetchAddresses()),
+  fetchOrders: userData => dispatch(actionCreators.fetchOrders(userData)),
+  getProfile: userID => dispatch(actionCreators.fetchUserProfile(userID))
 });
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
   return {
-    getProfile: userID => dispatch(actionCreators.fetchUserProfile(userID))
+    user: state.auth.user,
+    errs: state.errors.error
   };
 };
 

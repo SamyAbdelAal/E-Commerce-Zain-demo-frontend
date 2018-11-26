@@ -50,8 +50,8 @@ class NavBar extends Component {
             login
           </Link>
         )}
-        <Link className="btn btn-outline-primary" to="/checkout">
-          checkout
+        <Link className="btn btn-outline-primary" to="/cart">
+          Cart
         </Link>
       </nav>
     );
