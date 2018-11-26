@@ -1,21 +1,23 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  addresses: []
+  orders: [],
+  order: {}
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.FETCH_ADDRESSES:
-      const address = action.payload;
+    case actionTypes.FETCH_ORDERS:
+      const orders = action.payload;
       return {
         ...state,
-        addresses: address
+        orders: orders
       };
-    case actionTypes.CREATE_ADDRESS:
+    case actionTypes.FETCH_ORDER:
+      const order = action.payload;
       return {
         ...state,
-        addresses: action.payload.concate(action.payload)
+        order: action.payload
       };
     default:
       return state;

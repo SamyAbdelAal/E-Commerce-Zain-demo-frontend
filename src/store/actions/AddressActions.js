@@ -25,7 +25,7 @@ export const createAddress = addressDetail => {
   };
 };
 
-export const fetchAddresses = user => {
+export const fetchAddresses = () => {
   return dispatch => {
     dispatch(setLoading());
     instance
@@ -34,7 +34,7 @@ export const fetchAddresses = user => {
       .then(addresses => {
         return dispatch({
           type: actionTypes.FETCH_ADDRESSES,
-          payload: { addresses, user }
+          payload: addresses
         });
       })
       .catch(err => alert(err));

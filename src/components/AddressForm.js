@@ -153,9 +153,6 @@ class AddressForm extends Component {
               <div className="form-group">
                 <div className="col-sm-offset-2 col-sm-10">
                   <div className="pull-right">
-                    <button type="submit" className="btn btn-default">
-                      Cancel
-                    </button>
                     <button type="submit" className="btn btn-primary">
                       Save
                     </button>

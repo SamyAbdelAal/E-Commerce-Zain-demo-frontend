@@ -16,3 +16,5 @@ export {
   removeItemFromCart,
   setAddress
 } from "./CartActions";
+
+export { fetchOrders, fetchOrder } from "./orderActions";

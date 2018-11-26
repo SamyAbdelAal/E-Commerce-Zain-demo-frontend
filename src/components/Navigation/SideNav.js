@@ -18,7 +18,7 @@ class SideNav extends React.Component {
           <NavLink to="/welcome">Home</NavLink>
           <NavLink to="/items">Products</NavLink>
           <NavLink to="/profile">Profile</NavLink>
-          {/* <NavLink to="/previousOrders">Previous Orders</NavLink> */}
+          <NavLink to="/orders">Previous Orders</NavLink>
           {/*<a href="#">Clients</a>
            <a href="#">Contact</a>*/}
         </div>
