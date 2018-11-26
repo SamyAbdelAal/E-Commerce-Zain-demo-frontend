@@ -28,7 +28,7 @@ class ItemList extends Component {
               style={{ cursor: "default" }}
             />
           </div>
-          <div className="items">
+          <div className="container-fluid">
             <h3>Products</h3>
             <SearchBar />
             <div className="row">{itemCards}</div>
