@@ -37,7 +37,12 @@ class ItemDetail extends Component {
       const item = this.props.item;
       return (
         <div className="container" style={{ maxWidth: "100%" }}>
-          <div className="card">
+          <div
+            className="card"
+            style={{
+              background: " rgba(244, 243, 243, 0.71)"
+            }}
+          >
             <div className="container-fliud">
               <div className="wrapper row">
                 <div className="preview col-md-6">
@@ -58,7 +63,10 @@ class ItemDetail extends Component {
                       <img alt="item" src={item.img} />
                     </div>
                   </div>
-                  <ul className="preview-thumbnail nav nav-tabs">
+                  <ul
+                    className="preview-thumbnail nav nav-tabs"
+                    style={{ background: "#fff" }}
+                  >
                     <li className="active">
                       <a href="#" data-target="#pic-1" data-toggle="tab">
                         <img alt="item" src={item.img} />

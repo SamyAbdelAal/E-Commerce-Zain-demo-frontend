@@ -49,8 +49,9 @@ class App extends Component {
           <Route path="/profile" component={UserProfile} />
           <Route path="/cart" component={Cart} />
           <Route path="/items" component={ItemList} />
-          <Route path="/orders" component={OrderList} />
           <Route path="/orders/:orderID" component={OrderDetail} />
+          <Route path="/orders" component={OrderList} />
+
           <Redirect to="/welcome" />
         </Switch>
         <Footer />

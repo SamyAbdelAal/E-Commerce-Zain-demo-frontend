@@ -23,36 +23,30 @@ class NavBar extends Component {
             style={{ cursor: "pointer" }}
           />
         </Link>
-        <button
-          className="navbar-toggler navbar-toggler-right"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon" />
-        </button>
-        <span onClick={() => open()} style={{ cursor: "pointer" }}>
-          &#9776; open
-        </span>
-        {this.props.user ? (
-          <button
-            onClick={() => this.props.logout()}
-            className="btn btn-outline-primary"
-            style={{ marginLeft: "auto" }}
-          >
-            logout {this.props.user.username}
-          </button>
-        ) : (
-          <Link className="btn btn-outline-success" to="/login">
-            login
+
+        <span
+          className="navbar-toggler-icon"
+          onClick={() => open()}
+          style={{ cursor: "pointer" }}
+        />
+        <div style={{ marginLeft: "auto" }}>
+          {this.props.user ? (
+            <button
+              onClick={() => this.props.logout()}
+              className="btn btn-outline-primary"
+              style={{ marginLeft: "auto" }}
+            >
+              logout {this.props.user.username}
+            </button>
+          ) : (
+            <Link className="btn btn-outline-success" to="/login">
+              login
+            </Link>
+          )}
+          <Link className="btn btn-outline-primary" to="/cart">
+            Cart
           </Link>
-        )}
-        <Link className="btn btn-outline-primary" to="/cart">
-          Cart
-        </Link>
+        </div>
       </nav>
     );
   }

@@ -19,7 +19,7 @@ class OrderRow extends Component {
         <td>{order.ordered_on}</td>
         <td>{order.status}</td>
         <td>
-          <Link to={`/order/${order.id}`}>View</Link>
+          <Link to={`/orders/${order.id}`}>View</Link>
         </td>
       </tr>
     );
