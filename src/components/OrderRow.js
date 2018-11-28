@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 class OrderRow extends Component {
   render() {
     let order = this.props.order;
-    console.log(order);
     return (
       <tr>
         <th scope="row">{order.id}</th>
