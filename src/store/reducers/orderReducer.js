@@ -2,7 +2,8 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   orders: [],
-  order: {}
+  order: {},
+  loading: true
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,13 +12,25 @@ const reducer = (state = initialState, action) => {
       const orders = action.payload;
       return {
         ...state,
-        orders: orders
+        orders: orders,
+        loading: false
       };
     case actionTypes.FETCH_ORDER:
       const order = action.payload;
       return {
         ...state,
-        order: action.payload
+        order: order,
+        loading: false
+      };
+    case actionTypes.SET_ORDER_LOADING:
+      return {
+        ...state,
+        loading: true
+      };
+    case actionTypes.SET_ORDERS_LOADING:
+      return {
+        ...state,
+        loading: true
       };
     default:
       return state;

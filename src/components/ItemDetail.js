@@ -35,6 +35,7 @@ class ItemDetail extends Component {
       return <Loading />;
     } else {
       const item = this.props.item;
+      console.log(this.props.item);
       return (
         <div className="container" style={{ maxWidth: "100%" }}>
           <div
