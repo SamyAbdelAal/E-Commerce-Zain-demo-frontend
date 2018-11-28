@@ -23,9 +23,10 @@ export const fetchOrders = () => {
 };
 
 export const fetchOrder = orderId => {
+  console.log(orderId);
   return dispatch => {
     instance
-      .post(`api/order/${orderId}/detail/`)
+      .get(`api/order/${orderId}/detail/`)
       .then(res => res.data)
       .then(order => {
         dispatch({

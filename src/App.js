@@ -45,12 +45,13 @@ class App extends Component {
           <Route path="/address" component={AddressForm} />
           <Route path="/signup" component={SignupForm} />
           <Route path="/items/:itemID" component={ItemDetail} />
+          <Route path="/orders/:orderID" exact component={OrderDetail} />
           <Route path="/profile/update" component={ProfileUpdate} />
           <Route path="/profile" component={UserProfile} />
           <Route path="/cart" component={Cart} />
           <Route path="/items" component={ItemList} />
           <Route path="/orders" component={OrderList} />
-          <Route path="/orders/:orderID" component={OrderDetail} />
+
           <Redirect to="/welcome" />
         </Switch>
         <Footer />
