@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import { withRouter } from "react-router-dom";
 // Components
 
 import OrderRow from "./OrderRow";
@@ -34,4 +34,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(OrderList);
+export default withRouter(connect(mapStateToProps)(OrderList));
