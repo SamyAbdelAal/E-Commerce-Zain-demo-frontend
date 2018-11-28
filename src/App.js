@@ -16,6 +16,7 @@ import ItemDetail from "./components/ItemDetail";
 import Cart from "./components/Cart";
 import ProfileUpdate from "./components/ProfileUpdate";
 import OrderList from "./components/OrderList";
+import OrderDetail from "./components/OrderDetail";
 import SideNav from "./components/Navigation/SideNav";
 
 class App extends Component {
@@ -48,8 +49,8 @@ class App extends Component {
           <Route path="/profile" component={UserProfile} />
           <Route path="/cart" component={Cart} />
           <Route path="/items" component={ItemList} />
+          <Route path="/orders/:orderID" component={OrderDetail} />
           <Route path="/orders" component={OrderList} />
-          <Route path="/orders/:orderID" component={OrderList} />
           <Redirect to="/welcome" />
         </Switch>
         <Footer />
