@@ -40,8 +40,12 @@ class AddressForm extends Component {
     const type = this.props.match.url.substring(1);
     return (
       <div className="row">
-        <div className="col-md-4 col-md-offset-4">
-          <form className="form-horizontal" role="form">
+        <div className="col-md-4 col-md-offset-4 addreesForm">
+          <form
+            className="form-horizontal"
+            role="form"
+            onSubmit={this.submitHandler}
+          >
             <fieldset>
               <legend>Address Details</legend>
 
@@ -50,87 +54,98 @@ class AddressForm extends Component {
                   <label
                     className="col-sm-2
                  control-label"
-                    for="textinput"
+                    htmlFor="textinput"
                   >
                     Governorate*
                   </label>
                   <div className="col">
-                    <select placeholder="Governorate " className="form-control">
-                      <option value="" selected="selected">
+                    <select
+                      placeholder="Governorate "
+                      className="form-control"
+                      name="Governorate"
+                      onChange={e => this.changeHandler(e)}
+                    >
+                      <option value="" defaultValue="selected">
                         (please select a governorate)
                       </option>
-                      <option value="AA">Al Asimah</option>
-                      <option value="H">Hawalli</option>
-                      <option value="M">Mubarak Al-Kabeer</option>
-                      <option value="A">Al-Ahmadi</option>
-                      <option value="F">Farwaniya</option>
-                      <option value="J">Al-Jahra</option>
+                      <option value="Al Asimah">Al Asimah</option>
+                      <option value="Hawalli">Hawalli</option>
+                      <option value="Mubarak">Mubarak Al-Kabeer</option>
+                      <option value="Al-Ahmadi">Al-Ahmadi</option>
+                      <option value="Farwaniya">Farwaniya</option>
+                      <option value="Al-Jahra">Al-Jahra</option>
                     </select>
                   </div>
                 </div>
 
-                <label className="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" htmlFor="textinput">
                   Area*
                 </label>
                 <div className="col">
                   <input
                     type="text"
                     placeholder="Area"
+                    name="area"
                     className="form-control"
                     onChange={e => this.changeHandler(e)}
                   />
                 </div>
-                <label className="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" htmlFor="textinput">
                   Block*
                 </label>
                 <div className="col">
                   <input
                     type="text"
                     placeholder="Block"
+                    name="block"
                     className="form-control"
                     onChange={e => this.changeHandler(e)}
                   />
                 </div>
-                <label className="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" htmlFor="textinput">
                   Street*
                 </label>
                 <div className="col">
                   <input
                     type="text"
                     placeholder="Street"
+                    name="street"
                     className="form-control"
                     onChange={e => this.changeHandler(e)}
                   />
                 </div>
-                <label className="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" htmlFor="textinput">
                   Building*
                 </label>
                 <div className="col">
                   <input
                     type="text"
                     placeholder="Building or House"
+                    name="building_or_house"
                     className="form-control"
                     onChange={e => this.changeHandler(e)}
                   />
                 </div>
-                <label className="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" htmlFor="textinput">
                   Floor
                 </label>
                 <div className="col">
                   <input
                     type="text"
                     placeholder="Floor"
+                    name="floor"
                     className="form-control"
                     onChange={e => this.changeHandler(e)}
                   />
                 </div>
-                <label className="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" htmlFor="textinput">
                   Extra directions
                 </label>
                 <div className="col">
                   <input
                     type="text"
                     placeholder="Extra directions"
+                    name="extra_directions"
                     className="form-control"
                     onChange={e => this.changeHandler(e)}
                   />
@@ -138,7 +153,7 @@ class AddressForm extends Component {
               </div>
 
               {/* <div className="form-group">
-                <label className="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" htmlFor="textinput">
                   Country
                 </label>
                 <div className="col-sm-10">
@@ -168,7 +183,8 @@ class AddressForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  createAddress: addressDetail => dispatch(actionCreators.createAddress)
+  createAddress: addressDetail =>
+    dispatch(actionCreators.createAddress(addressDetail))
 });
 const mapStateToProps = state => {
   return {

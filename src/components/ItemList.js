@@ -4,13 +4,14 @@ import { connect } from "react-redux";
 // Components
 
 import Card from "./Card";
+import CardRedesign from "./CardRedesign";
 import SearchBar from "./SearchBar";
 import Loading from "./Loading";
 
 class ItemList extends Component {
   render() {
     const itemCards = this.props.filteredProducts.map(item => (
-      <Card key={item.id} item={item} />
+      <CardRedesign key={item.id} item={item} />
     ));
 
     if (this.props.loading) {
@@ -28,7 +29,7 @@ class ItemList extends Component {
               style={{ cursor: "default" }}
             />
           </div>
-          <div className="container-fluid">
+          <div className="container">
             <h3>Products</h3>
             <SearchBar />
             <div className="row">{itemCards}</div>

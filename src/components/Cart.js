@@ -73,78 +73,11 @@ class Cart extends Component {
                       Total <strong>{total(this.props.cart)}</strong>
                     </h4>
                   </div>
-                  <div className="col-xs-3">
-                    <button
-                      type="button"
-                      className="btn btn-primary"
-                      data-toggle="modal"
-                      data-target="#addressForm"
-                    >
-                      Add New Address
-                    </button>
-
-                    <div
-                      className="modal fade"
-                      id="addressForm"
-                      tabindex="-1"
-                      role="dialog"
-                      aria-labelledby="exampleModalCenterTitle"
-                      aria-hidden="true"
-                    >
-                      <div
-                        className="modal-dialog modal-dialog-centered"
-                        role="document"
-                      >
-                        <div className="modal-content">
-                          <div className="modal-header">
-                            <h5
-                              className="modal-title"
-                              id="exampleModalCenterTitle"
-                            >
-                              Modal title
-                            </h5>
-                            <button
-                              type="button"
-                              className="close"
-                              data-dismiss="modal"
-                              aria-label="Close"
-                            >
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div className="modal-body">
-                            <AddressForm />
-                          </div>
-                          {/* <div className="modal-footer">
-                            <button
-                              type="button"
-                              className="btn btn-secondary"
-                              data-dismiss="modal"
-                            >
-                              Close
-                            </button>
-                            <button type="button" className="btn btn-primary">
-                              Save changes
-                            </button>
-                          </div> */}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    data-toggle="modal"
-                    data-target="#addressList"
-                  >
-                    Choose Address
-                  </button>
 
                   <div
                     className="modal fade"
                     id="addressList"
-                    tabindex="-1"
+                    tabIndex="-1"
                     role="dialog"
                     aria-labelledby="Addresses"
                     aria-hidden="true"
@@ -202,7 +135,63 @@ class Cart extends Component {
                       "No address specified"
                     )}
                   </div>
-
+                  <div className="col-xs-3">
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      data-toggle="modal"
+                      data-target="#addressForm"
+                    >
+                      Add New Address
+                    </button>
+                    <div
+                      className="modal fade"
+                      id="addressForm"
+                      tabIndex="-1"
+                      role="dialog"
+                      aria-labelledby="exampleModalCenterTitle"
+                      aria-hidden="true"
+                    >
+                      <div
+                        className="modal-dialog modal-dialog-centered"
+                        role="document"
+                      >
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <h5
+                              className="modal-title"
+                              id="exampleModalCenterTitle"
+                            >
+                              Modal title
+                            </h5>
+                            <button
+                              type="button"
+                              className="close"
+                              data-dismiss="modal"
+                              aria-label="Close"
+                            >
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div className="modal-body">
+                            <AddressForm />
+                          </div>
+                          {/* <div className="modal-footer">
+                  <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-dismiss="modal"
+                  >
+                  Close
+                  </button>
+                  <button type="button" className="btn btn-primary">
+                  Save changes
+                  </button>
+                  </div> */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div className="col-xs-3">
                     <button
                       onClick={() => this.handleCheckout()}
@@ -212,6 +201,14 @@ class Cart extends Component {
                       Checkout
                     </button>
                   </div>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    data-toggle="modal"
+                    data-target="#addressList"
+                  >
+                    Choose Address
+                  </button>
                 </div>
               </div>
             </div>

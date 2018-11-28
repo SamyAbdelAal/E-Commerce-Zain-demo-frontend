@@ -78,7 +78,7 @@ export const signup = (userData, history) => {
 
 export const logout = dispatch => {
   setAuthToken();
-  dispatch(setErrors());
+
   return setCurrentUser();
 };
 
