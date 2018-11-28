@@ -12,6 +12,7 @@ import UserProfile from "./components/UserProfile";
 import ItemDetail from "./components/ItemDetail";
 import Cart from "./components/Cart";
 import OrderList from "./components/OrderList";
+import OrderDetail from "./components/OrderDetail";
 import SideNav from "./components/Navigation/SideNav";
 import * as actionCreators from "./store/actions";
 import { connect } from "react-redux";
@@ -24,7 +25,7 @@ class App extends Component {
     }
   }
   componentDidUpdate(prevProps) {
-    if (this.props.user !== prevProps.user) {
+    if (this.props.user !== prevProps.user && this.props.user) {
       this.props.fetchAddresses();
       this.props.fetchOrders();
     }
@@ -44,7 +45,7 @@ class App extends Component {
           <Route path="/cart" component={Cart} />
           <Route path="/items" component={ItemList} />
           <Route path="/orders" component={OrderList} />
-          <Route path="/orders/:orderID" component={OrderList} />
+          <Route path="/orders/:orderID" component={OrderDetail} />
           <Redirect to="/welcome" />
         </Switch>
         <Footer />

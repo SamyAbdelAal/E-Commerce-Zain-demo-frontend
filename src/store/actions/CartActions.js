@@ -15,10 +15,10 @@ export const checkout = cartWithAddress => {
     instance
       .post("api/order/create/", cartWithAddress)
       .then(res => res.data)
-      .then(cartWithAddress => {
+      .then(order => {
         dispatch({
           type: actionTypes.POST_CHECKOUT,
-          payload: cartWithAddress
+          payload: order
         });
       })
       .catch(err => console.error(err));

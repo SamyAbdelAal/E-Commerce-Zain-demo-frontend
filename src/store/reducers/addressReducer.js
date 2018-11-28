@@ -13,9 +13,10 @@ const reducer = (state = initialState, action) => {
         addresses: address
       };
     case actionTypes.CREATE_ADDRESS:
+      const new_address = action.payload;
       return {
         ...state,
-        addresses: action.payload.concate(action.payload)
+        addresses: state.addresses.concat(new_address)
       };
     default:
       return state;

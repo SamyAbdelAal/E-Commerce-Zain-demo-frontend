@@ -8,7 +8,6 @@ import OrderRow from "./OrderRow";
 
 class OrderList extends Component {
   render() {
-    console.log(this.props.orders);
     const orderRows = this.props.orders.map(order => (
       <OrderRow key={order.id} order={order} />
     ));

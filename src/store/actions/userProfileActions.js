@@ -14,7 +14,7 @@ export const fetchUserProfile = userID => {
   return dispatch => {
     dispatch(setLoading());
     instance
-      .get(`api/profile/${userID}`)
+      .get(`api/profile/${userID}/`)
       .then(res => res.data)
       .then(profile => {
         dispatch({
