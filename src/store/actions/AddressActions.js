@@ -7,11 +7,13 @@ const instance = axios.create({
 });
 
 export const setLoading = () => ({
-  type: actionTypes.SET_PRODUCTS_LOADING
+  type: actionTypes.SET_ADDRESS_LOADING
 });
 
 export const createAddress = addressDetail => {
   return dispatch => {
+    console.log(addressDetail);
+
     instance
       .post("api/address/create/", addressDetail)
       .then(res => res.data)

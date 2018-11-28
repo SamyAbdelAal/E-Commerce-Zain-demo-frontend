@@ -37,10 +37,12 @@ class AddressForm extends Component {
   }
 
   render() {
-    const type = this.props.match.url.substring(1);
+    // const type = this.props.match.url.substring(1);
     return (
       <div className="row">
+
         <div className="col-md-4 col-md-offset-4 addreesForm">
+
           <form
             className="form-horizontal"
             role="form"
@@ -62,15 +64,19 @@ class AddressForm extends Component {
                     <select
                       placeholder="Governorate "
                       className="form-control"
-                      name="Governorate"
-                      onChange={e => this.changeHandler(e)}
+
+                     name="governorate"
+                     onChange={this.changeHandler}
                     >
                       <option value="" defaultValue="selected">
                         (please select a governorate)
                       </option>
                       <option value="Al Asimah">Al Asimah</option>
                       <option value="Hawalli">Hawalli</option>
-                      <option value="Mubarak">Mubarak Al-Kabeer</option>
+                      <option value="Mubarak Al-Kabeer">
+                        Mubarak Al-Kabeer
+                      </option>
+
                       <option value="Al-Ahmadi">Al-Ahmadi</option>
                       <option value="Farwaniya">Farwaniya</option>
                       <option value="Al-Jahra">Al-Jahra</option>
@@ -87,7 +93,8 @@ class AddressForm extends Component {
                     placeholder="Area"
                     name="area"
                     className="form-control"
-                    onChange={e => this.changeHandler(e)}
+                    onChange={this.changeHandler}
+                    name="area"
                   />
                 </div>
                 <label className="col-sm-2 control-label" htmlFor="textinput">
@@ -99,7 +106,8 @@ class AddressForm extends Component {
                     placeholder="Block"
                     name="block"
                     className="form-control"
-                    onChange={e => this.changeHandler(e)}
+                    onChange={this.changeHandler}
+                    name="block"
                   />
                 </div>
                 <label className="col-sm-2 control-label" htmlFor="textinput">
@@ -111,7 +119,8 @@ class AddressForm extends Component {
                     placeholder="Street"
                     name="street"
                     className="form-control"
-                    onChange={e => this.changeHandler(e)}
+                    onChange={this.changeHandler}
+                    name="street"
                   />
                 </div>
                 <label className="col-sm-2 control-label" htmlFor="textinput">
@@ -123,7 +132,8 @@ class AddressForm extends Component {
                     placeholder="Building or House"
                     name="building_or_house"
                     className="form-control"
-                    onChange={e => this.changeHandler(e)}
+                    onChange={this.changeHandler}
+                    name="building_or_house"
                   />
                 </div>
                 <label className="col-sm-2 control-label" htmlFor="textinput">
@@ -135,7 +145,8 @@ class AddressForm extends Component {
                     placeholder="Floor"
                     name="floor"
                     className="form-control"
-                    onChange={e => this.changeHandler(e)}
+                    onChange={this.changeHandler}
+                    name="floor"
                   />
                 </div>
                 <label className="col-sm-2 control-label" htmlFor="textinput">
@@ -147,7 +158,8 @@ class AddressForm extends Component {
                     placeholder="Extra directions"
                     name="extra_directions"
                     className="form-control"
-                    onChange={e => this.changeHandler(e)}
+                    onChange={this.changeHandler}
+                    name="extra_directions"
                   />
                 </div>
               </div>
