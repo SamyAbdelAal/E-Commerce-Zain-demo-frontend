@@ -28,7 +28,7 @@ class App extends Component {
     }
   }
   componentDidUpdate(prevProps) {
-    if (this.props.user !== prevProps.user) {
+    if (this.props.user !== prevProps.user && this.props.user) {
       this.props.fetchAddresses();
       this.props.fetchOrders();
       this.props.getProfile(this.props.user.user_id);
@@ -51,6 +51,7 @@ class App extends Component {
           <Route path="/items" component={ItemList} />
           <Route path="/orders/:orderID" component={OrderDetail} />
           <Route path="/orders" component={OrderList} />
+
           <Redirect to="/welcome" />
         </Switch>
         <Footer />
