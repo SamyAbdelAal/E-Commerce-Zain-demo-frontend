@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Exo+2");
 html {
   position: relative;
   min-height: 100%;
@@ -6,6 +7,7 @@ html {
 
 body {
   overflow-x: hidden;
+  font-family: "Exo 2", sans-serif;
 }
 
 body.sticky-footer {
@@ -976,7 +978,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 }
 
 .nav {
-  background-color: #781287;
+  background-color: #fff;
 }
 
 #mainNav.navbar-light

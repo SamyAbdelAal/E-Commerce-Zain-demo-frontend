@@ -19,7 +19,7 @@ class CardRedesign extends Component {
   render() {
     const item = this.props.item;
     return (
-      <div class="[ col-lg ]">
+      <div class="[ col-lg-3 ]">
         <div class="[ info-card ]">
           <img
             style={{ width: "100%" }}
