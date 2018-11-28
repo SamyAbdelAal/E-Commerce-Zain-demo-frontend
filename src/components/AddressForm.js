@@ -40,7 +40,9 @@ class AddressForm extends Component {
     // const type = this.props.match.url.substring(1);
     return (
       <div className="row">
-        <div className="col-md-4 col-md-offset-4">
+
+        <div className="col-md-4 col-md-offset-4 addreesForm">
+
           <form
             className="form-horizontal"
             role="form"
@@ -54,7 +56,7 @@ class AddressForm extends Component {
                   <label
                     className="col-sm-2
                  control-label"
-                    for="textinput"
+                    htmlFor="textinput"
                   >
                     Governorate*
                   </label>
@@ -62,10 +64,11 @@ class AddressForm extends Component {
                     <select
                       placeholder="Governorate "
                       className="form-control"
-                      onChange={this.changeHandler}
-                      name="governorate"
+
+                     name="governorate"
+                     onChange={this.changeHandler}
                     >
-                      <option value="" selected="selected">
+                      <option value="" defaultValue="selected">
                         (please select a governorate)
                       </option>
                       <option value="Al Asimah">Al Asimah</option>
@@ -73,6 +76,7 @@ class AddressForm extends Component {
                       <option value="Mubarak Al-Kabeer">
                         Mubarak Al-Kabeer
                       </option>
+
                       <option value="Al-Ahmadi">Al-Ahmadi</option>
                       <option value="Farwaniya">Farwaniya</option>
                       <option value="Al-Jahra">Al-Jahra</option>
@@ -80,73 +84,79 @@ class AddressForm extends Component {
                   </div>
                 </div>
 
-                <label className="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" htmlFor="textinput">
                   Area*
                 </label>
                 <div className="col">
                   <input
                     type="text"
                     placeholder="Area"
+                    name="area"
                     className="form-control"
                     onChange={this.changeHandler}
                     name="area"
                   />
                 </div>
-                <label className="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" htmlFor="textinput">
                   Block*
                 </label>
                 <div className="col">
                   <input
                     type="text"
                     placeholder="Block"
+                    name="block"
                     className="form-control"
                     onChange={this.changeHandler}
                     name="block"
                   />
                 </div>
-                <label className="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" htmlFor="textinput">
                   Street*
                 </label>
                 <div className="col">
                   <input
                     type="text"
                     placeholder="Street"
+                    name="street"
                     className="form-control"
                     onChange={this.changeHandler}
                     name="street"
                   />
                 </div>
-                <label className="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" htmlFor="textinput">
                   Building*
                 </label>
                 <div className="col">
                   <input
                     type="text"
                     placeholder="Building or House"
+                    name="building_or_house"
                     className="form-control"
                     onChange={this.changeHandler}
                     name="building_or_house"
                   />
                 </div>
-                <label className="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" htmlFor="textinput">
                   Floor
                 </label>
                 <div className="col">
                   <input
                     type="text"
                     placeholder="Floor"
+                    name="floor"
                     className="form-control"
                     onChange={this.changeHandler}
                     name="floor"
                   />
                 </div>
-                <label className="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" htmlFor="textinput">
                   Extra directions
                 </label>
                 <div className="col">
                   <input
                     type="text"
                     placeholder="Extra directions"
+                    name="extra_directions"
                     className="form-control"
                     onChange={this.changeHandler}
                     name="extra_directions"
@@ -155,7 +165,7 @@ class AddressForm extends Component {
               </div>
 
               {/* <div className="form-group">
-                <label className="col-sm-2 control-label" for="textinput">
+                <label className="col-sm-2 control-label" htmlFor="textinput">
                   Country
                 </label>
                 <div className="col-sm-10">

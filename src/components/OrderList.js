@@ -13,8 +13,8 @@ class OrderList extends Component {
     ));
 
     return (
-      <table class="table">
-        <thead class="thead-dark">
+      <table className="table">
+        <thead className="thead-dark">
           <tr>
             <th scope="col">OrderId</th>
             <th scope="col">TimeStamp</th>

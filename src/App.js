@@ -18,8 +18,6 @@ import ProfileUpdate from "./components/ProfileUpdate";
 import OrderList from "./components/OrderList";
 import OrderDetail from "./components/OrderDetail";
 import SideNav from "./components/Navigation/SideNav";
-import * as actionCreators from "./store/actions";
-import { connect } from "react-redux";
 
 class App extends Component {
   componentDidMount() {

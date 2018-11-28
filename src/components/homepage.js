@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Card from "./Card";
+import CardRedesign from "./CardRedesign";
 import { Link } from "react-router-dom";
 
 class Homepage extends Component {
   render() {
     const itemCards = this.props.products
       .slice(0, 3)
-      .map(item => <Card key={item.id} item={item} />);
+      .map(item => <CardRedesign key={item.id} item={item} />);
     return (
       <div>
         <div className="upcoming py-5">

@@ -613,12 +613,11 @@ img {
 
   margin-top: -6px;
 }
-.chat {
-  background-image: url("/images/chatbg.png");
-  height: calc(100vh - (56px + 70px));
-  background-size: cover;
-  color: #f0f0f0;
-  margin-top: -6px;
+@media only screen and (min-width: 1000px) {
+  .addreesForm {
+    margin-left: 0;
+    min-width: 450px;
+  }
 }
 
 .items {
