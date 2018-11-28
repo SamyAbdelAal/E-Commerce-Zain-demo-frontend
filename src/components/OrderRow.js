@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import OrderDetail from "./OrderDetail";
 import * as actionCreators from "../store/actions";
 import { connect } from "react-redux";
@@ -19,7 +19,7 @@ class OrderRow extends Component {
         <td>{order.ordered_on}</td>
         <td>{order.status}</td>
         <td>
-          <link to={`/order/${order.id}`}>View</link>
+          <Link to={`/order/${order.id}`}>View</Link>
         </td>
       </tr>
     );

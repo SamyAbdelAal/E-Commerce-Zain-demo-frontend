@@ -37,11 +37,15 @@ class AddressForm extends Component {
   }
 
   render() {
-    const type = this.props.match.url.substring(1);
+    // const type = this.props.match.url.substring(1);
     return (
       <div className="row">
         <div className="col-md-4 col-md-offset-4">
-          <form className="form-horizontal" role="form">
+          <form
+            className="form-horizontal"
+            role="form"
+            onSubmit={this.submitHandler}
+          >
             <fieldset>
               <legend>Address Details</legend>
 
@@ -55,16 +59,23 @@ class AddressForm extends Component {
                     Governorate*
                   </label>
                   <div className="col">
-                    <select placeholder="Governorate " className="form-control">
+                    <select
+                      placeholder="Governorate "
+                      className="form-control"
+                      onChange={this.changeHandler}
+                      name="governorate"
+                    >
                       <option value="" selected="selected">
                         (please select a governorate)
                       </option>
-                      <option value="AA">Al Asimah</option>
-                      <option value="H">Hawalli</option>
-                      <option value="M">Mubarak Al-Kabeer</option>
-                      <option value="A">Al-Ahmadi</option>
-                      <option value="F">Farwaniya</option>
-                      <option value="J">Al-Jahra</option>
+                      <option value="Al Asimah">Al Asimah</option>
+                      <option value="Hawalli">Hawalli</option>
+                      <option value="Mubarak Al-Kabeer">
+                        Mubarak Al-Kabeer
+                      </option>
+                      <option value="Al-Ahmadi">Al-Ahmadi</option>
+                      <option value="Farwaniya">Farwaniya</option>
+                      <option value="Al-Jahra">Al-Jahra</option>
                     </select>
                   </div>
                 </div>
@@ -77,7 +88,8 @@ class AddressForm extends Component {
                     type="text"
                     placeholder="Area"
                     className="form-control"
-                    onChange={e => this.changeHandler(e)}
+                    onChange={this.changeHandler}
+                    name="area"
                   />
                 </div>
                 <label className="col-sm-2 control-label" for="textinput">
@@ -88,7 +100,8 @@ class AddressForm extends Component {
                     type="text"
                     placeholder="Block"
                     className="form-control"
-                    onChange={e => this.changeHandler(e)}
+                    onChange={this.changeHandler}
+                    name="block"
                   />
                 </div>
                 <label className="col-sm-2 control-label" for="textinput">
@@ -99,7 +112,8 @@ class AddressForm extends Component {
                     type="text"
                     placeholder="Street"
                     className="form-control"
-                    onChange={e => this.changeHandler(e)}
+                    onChange={this.changeHandler}
+                    name="street"
                   />
                 </div>
                 <label className="col-sm-2 control-label" for="textinput">
@@ -110,7 +124,8 @@ class AddressForm extends Component {
                     type="text"
                     placeholder="Building or House"
                     className="form-control"
-                    onChange={e => this.changeHandler(e)}
+                    onChange={this.changeHandler}
+                    name="building_or_house"
                   />
                 </div>
                 <label className="col-sm-2 control-label" for="textinput">
@@ -121,7 +136,8 @@ class AddressForm extends Component {
                     type="text"
                     placeholder="Floor"
                     className="form-control"
-                    onChange={e => this.changeHandler(e)}
+                    onChange={this.changeHandler}
+                    name="floor"
                   />
                 </div>
                 <label className="col-sm-2 control-label" for="textinput">
@@ -132,7 +148,8 @@ class AddressForm extends Component {
                     type="text"
                     placeholder="Extra directions"
                     className="form-control"
-                    onChange={e => this.changeHandler(e)}
+                    onChange={this.changeHandler}
+                    name="extra_directions"
                   />
                 </div>
               </div>
@@ -168,7 +185,8 @@ class AddressForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  createAddress: addressDetail => dispatch(actionCreators.createAddress)
+  createAddress: addressDetail =>
+    dispatch(actionCreators.createAddress(addressDetail))
 });
 const mapStateToProps = state => {
   return {
