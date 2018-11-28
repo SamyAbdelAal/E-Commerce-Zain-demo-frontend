@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
-// Components
-import Loading from "./Loading";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/actions";
+// Components
+import Loading from "./Loading";
+import AddressList from "./AddressList";
 
 class UserProfile extends Component {
   componentDidMount() {
@@ -12,6 +12,7 @@ class UserProfile extends Component {
   }
 
   render() {
+    const type = this.props.match.url.substring(1);
     if (this.props.loading) {
       return <Loading />;
     } else {
@@ -116,9 +117,19 @@ class UserProfile extends Component {
                         <hr />
                         <div className="row">
                           <div className="col-sm-3 col-md-2 col-5">
-                            <p style={{ fontWeight: "bold" }}>Something</p>
+                            <p style={{ fontWeight: "bold" }}>Addresses</p>
                           </div>
-                          <div className="col-md-8 col-6">Something</div>
+                          <div className="col-md-8 col-6">
+                            <button
+                              type="button"
+                              className="btn btn-primary"
+                              data-toggle="modal"
+                              data-target="#addressList"
+                            >
+                              Choose Address
+                            </button>
+                            <AddressList type={type} />
+                          </div>
                         </div>
                         <hr />
                         <div className="row">

@@ -13,6 +13,8 @@ class AddressCard extends Component {
   }
   render() {
     const address = this.props.address;
+    // console.log(this.props.match);
+    // const type = this.props.match.url.substring(1);
     return (
       <div className="col">
         <div className="card">
@@ -24,13 +26,15 @@ class AddressCard extends Component {
             }/ building_or_house: ${address.building_or_house}/ floor: ${
               address.floor
             }/ extra directions: ${address.extra_directions}`}</p>
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={() => this.handleAdd()}
-            >
-              Choose
-            </button>
+            {this.props.type !== "profile" && (
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => this.handleAdd()}
+              >
+                Choose
+              </button>
+            )}
           </div>
         </div>
       </div>
