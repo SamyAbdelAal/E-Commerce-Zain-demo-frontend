@@ -10,11 +10,11 @@ const setLoading = () => ({
   type: actionTypes.SET_PROFILE_LOADING
 });
 
-export const fetchUserProfile = userID => {
+export const fetchUserProfile = () => {
   return dispatch => {
     dispatch(setLoading());
     instance
-      .get(`api/profile/${userID}/`)
+      .get(`api/profile/`)
       .then(res => res.data)
       .then(profile => {
         dispatch({

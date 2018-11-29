@@ -8,7 +8,7 @@ import AddressList from "./AddressList";
 
 class UserProfile extends Component {
   componentDidMount() {
-    this.props.getProfile(this.props.user.user_id);
+    this.props.getProfile();
   }
 
   render() {
@@ -161,7 +161,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getProfile: userID => dispatch(actionCreators.fetchUserProfile(userID))
+    getProfile: () => dispatch(actionCreators.fetchUserProfile())
   };
 };
 

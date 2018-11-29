@@ -28,7 +28,6 @@ class OrderDetail extends Component {
         )
       );
       const order = this.props.order;
-      console.log(this.props.order.order_product);
       return (
         <div className="container">
           <h1>Order {order.id}</h1>
