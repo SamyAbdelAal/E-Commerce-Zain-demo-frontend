@@ -115,6 +115,10 @@ class ItemDetail extends Component {
                       KD
                     </span>
                   </h4>
+                  <h4 className="price">
+                    current stock:
+                    <span>{item.quantity}</span>
+                  </h4>
                   <p className="vote">
                     <strong>91%</strong> of buyers enjoyed this product!
                     <strong>(87 votes)</strong>
@@ -152,6 +156,8 @@ class ItemDetail extends Component {
                       name="quantity"
                       className="form-control input-sm"
                       defaultValue={1}
+                      min="1"
+                      max={item.quantity}
                       onChange={this.changeHandler}
                     />
                   </h5>

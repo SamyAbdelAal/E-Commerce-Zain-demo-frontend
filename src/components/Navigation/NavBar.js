@@ -10,10 +10,7 @@ import * as actionCreators from "../../store/actions";
 class NavBar extends Component {
   render() {
     return (
-      <nav
-        className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav"
-        id="mainNav"
-      >
+      <nav className="navbar navbar-expand-lg  fixed-top nav" id="mainNav">
         <Link className="navbar-brand" to="/welcome">
           <img
             src="https://www.kw.zain.com/o/zainkw-revamp-cms-theme/images/logo1.png"
@@ -24,11 +21,13 @@ class NavBar extends Component {
           />
         </Link>
 
-        <span
-          className="navbar-toggler-icon"
+        <button
+          className="btn btn-outline-success"
           onClick={() => open()}
           style={{ cursor: "pointer" }}
-        />
+        >
+          ☰
+        </button>
         <div style={{ marginLeft: "auto" }}>
           {this.props.user ? (
             <button
