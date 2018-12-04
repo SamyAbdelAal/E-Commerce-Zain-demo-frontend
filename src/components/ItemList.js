@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import * as actionCreators from "../store/actions";
 
 // Components
 
@@ -9,6 +10,17 @@ import SearchBar from "./SearchBar";
 import Loading from "./Loading";
 
 class ItemList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      categoryChoice: false
+    };
+    this.handleCategory = this.handleCategory.bind(this);
+  }
+
+  handleCategory(e) {
+    this.props.categoryChoice(e.target.value);
+  }
   render() {
     const itemCards = this.props.filteredProducts.map(item => (
       <CardRedesign key={item.id} item={item} />
@@ -32,6 +44,21 @@ class ItemList extends Component {
           <div className="container">
             <h3>Products</h3>
             <SearchBar />
+            <button className="btn" onClick={() => this.handleCategory()}>
+              Food
+            </button>
+            <select
+              placeholder="category "
+              className="form-control"
+              name="governorate"
+              onChange={this.handleCategory}
+            >
+              <option value="" defaultValue="selected">
+                (Select a category)
+              </option>
+              <option value="FOOD">FOOD</option>
+              <option value="DRINKS">DRINKS</option>
+            </select>
             <div className="row">{itemCards}</div>
           </div>
         </div>
@@ -47,4 +74,14 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(ItemList);
+const mapDispatchToProps = dispatch => {
+  return {
+    onSearch: query => dispatch(actionCreators.filterProducts(query)),
+    categoryChoice: query => dispatch(actionCreators.filterCategory(query))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ItemList);

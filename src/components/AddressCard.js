@@ -8,7 +8,6 @@ class AddressCard extends Component {
     this.handleAdd = this.handleAdd.bind(this);
   }
   handleAdd() {
-    console.log(this.props.address.id);
     this.props.setAddress(this.props.address.id);
   }
   render() {

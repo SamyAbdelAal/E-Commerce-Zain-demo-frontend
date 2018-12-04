@@ -3,7 +3,7 @@ import * as actionTypes from "./actionTypes";
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000/"
+  baseURL: "http://192.168.100.32:8000/"
 });
 
 const setLoading = () => ({
@@ -26,7 +26,7 @@ export const fetchUserProfile = () => {
   };
 };
 
-export const updateUserProfile = (profileInfo, userID) => {
+export const updateUserProfile = (profileInfo, userID, history) => {
   return dispatch => {
     instance
       .put(`api/profile/${userID}/update/`, profileInfo)
@@ -36,6 +36,7 @@ export const updateUserProfile = (profileInfo, userID) => {
           type: actionTypes.UPDATE_USER_PROFILE,
           payload: profileInfo
         });
+        history.goBack();
       })
       .catch(err => console.error(err));
   };

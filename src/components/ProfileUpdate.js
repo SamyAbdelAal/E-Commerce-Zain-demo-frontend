@@ -48,7 +48,7 @@ class ProfileUpdate extends Component {
   submitHandler(e) {
     e.preventDefault();
 
-    this.props.update(this.state, this.props.user.user_id);
+    this.props.update(this.state, this.props.user.user_id, this.props.history);
   }
 
   render() {
@@ -96,7 +96,7 @@ class ProfileUpdate extends Component {
             <div className="form-group">
               <input
                 className="form-control"
-                type="text"
+                type="date"
                 defaultValue={this.props.profile.dob}
                 placeholder="Birthdate"
                 name="dob"
@@ -132,8 +132,8 @@ class ProfileUpdate extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  update: (profileInfo, userID) =>
-    dispatch(actionCreators.updateUserProfile(profileInfo, userID))
+  update: (profileInfo, userID, history) =>
+    dispatch(actionCreators.updateUserProfile(profileInfo, userID, history))
 });
 const mapStateToProps = state => {
   return {

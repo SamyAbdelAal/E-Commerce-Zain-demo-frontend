@@ -3,6 +3,7 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   products: [],
   filteredProducts: [],
+  filteredCategory: [],
   loading: true
 };
 
@@ -19,7 +20,20 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         filteredProducts: state.products.filter(product => {
-          return `${product.name}`.toLowerCase().includes(action.payload);
+          console.log(action.payload.toLowerCase());
+          return `${product.name}`
+            .toLowerCase()
+            .includes(action.payload.toLowerCase());
+        }),
+        loading: false
+      };
+    case actionTypes.FILTER_CATEGORY:
+      return {
+        ...state,
+        filteredProducts: state.products.filter(product => {
+          return `${product.category}`
+            .toLowerCase()
+            .includes(action.payload.toLowerCase());
         }),
         loading: false
       };

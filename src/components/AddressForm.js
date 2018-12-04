@@ -40,9 +40,7 @@ class AddressForm extends Component {
     // const type = this.props.match.url.substring(1);
     return (
       <div className="row">
-
         <div className="col-md-4 col-md-offset-4 addreesForm">
-
           <form
             className="form-horizontal"
             role="form"
@@ -64,9 +62,8 @@ class AddressForm extends Component {
                     <select
                       placeholder="Governorate "
                       className="form-control"
-
-                     name="governorate"
-                     onChange={this.changeHandler}
+                      name="governorate"
+                      onChange={this.changeHandler}
                     >
                       <option value="" defaultValue="selected">
                         (please select a governorate)

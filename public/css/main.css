@@ -67,7 +67,9 @@ body.fixed-nav {
 .z-1 {
   z-index: 1;
 }
-
+#mainNav {
+  background: rgba(119, 74, 117, 0.6);
+}
 #mainNav .navbar-collapse {
   overflow: auto;
   max-height: 75vh;

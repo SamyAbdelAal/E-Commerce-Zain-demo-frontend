@@ -4,11 +4,13 @@ export { setErrors } from "./errors";
 
 export { fetchProduct } from "./ProductActions";
 
-
-
 export { fetchAddresses, createAddress } from "./AddressActions";
 export { fetchUserProfile, updateUserProfile } from "./userProfileActions";
-export { fetchProducts, filterProducts } from "./ProductsActions";
+export {
+  fetchProducts,
+  filterProducts,
+  filterCategory
+} from "./ProductsActions";
 export {
   addProduct,
   checkout,

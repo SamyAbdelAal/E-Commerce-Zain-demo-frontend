@@ -32,7 +32,19 @@ class OrderDetail extends Component {
         <div className="container">
           <h1>Order {order.id}</h1>
           <h1>Address:</h1>
-          <p>{order.address.governorate}</p>
+          <h3>
+            Governorate:
+            {order.address.governorate}
+            <br /> Area: {order.address.area} <br />
+            Block:
+            {order.address.block} <br />
+            Street: {order.address.street} <br />
+            Building: {order.address.building_or_house} <br />
+            floor:
+            {order.address.floor} <br />
+            Extra directions: {order.address.extra_directions}
+          </h3>
+
           <h1>Order Products</h1>
           <table className="table">
             <thead className="thead-dark">
