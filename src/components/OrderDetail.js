@@ -20,22 +20,14 @@ class OrderDetail extends Component {
         )
       );
       const order = this.props.order;
+      console.log(order);
       return (
         <div className="container-fluid">
           <h1>Order {order.id}</h1>
-          <h1>Address:</h1>
-          <h3>
-            Governorate:
-            {order.address.governorate}
-            {"   "} Area: {order.address.area} Block:
-            {order.address.block} Street: {order.address.street} Building:
-            {"   "}
-            {order.address.building_or_house} floor:
-            {order.address.floor} Extra directions:
-            {"   "}
-            {order.address.extra_directions}
-            {"   "}
-          </h3>
+          <h1>Status:</h1>
+          <h3>{order.status}</h3>
+          <h1>Total Price:</h1>
+          <h3>{order.price + " KD"}</h3>
 
           <h1>Order Products</h1>
           <div class="near_by_hotel_wrapper">
@@ -56,6 +48,18 @@ class OrderDetail extends Component {
                 </thead>
                 <tbody>{productOrderRows}</tbody>
               </table>
+              <h1>Address:</h1>
+              <h3>
+                Governorate:
+                {order.address.governorate}
+                {"   /"} Area: {order.address.area} {"   /"} Block:
+                {order.address.block} {"   /"} Street: {order.address.street}
+                {"   /"}Building:
+                {"   /"}
+                {order.address.building_or_house} {"   /"} floor:
+                {order.address.floor} {"   /"}Extra directions:
+                {order.address.extra_directions}
+              </h3>
             </div>
           </div>
         </div>

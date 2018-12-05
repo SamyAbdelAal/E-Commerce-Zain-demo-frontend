@@ -84,7 +84,7 @@ class CartItem extends Component {
                         className="form-control"
                         min={1}
                         max={this.props.order.item["quantity"]}
-                        value={this.state.quantity}
+                        value={order.quantity}
                         onChange={value => this.changeQuan(value)}
                       />
                     </div>
