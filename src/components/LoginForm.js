@@ -50,11 +50,6 @@ class LoginForm extends Component {
               : "Register an account"}
           </h5>
           <form onSubmit={this.submitHandler} noValidate>
-            {/* {authStore.errors.length > 0 && (
-            <div className="alert alert-danger" role="alert">
-              {authStore.errors}
-            </div>
-          )} */}
             <div className="form-group">
               <input
                 className="form-control"

@@ -117,7 +117,11 @@ class ItemDetail extends Component {
                   </h4>
                   <h4 className="price">
                     current stock:
-                    <span>{item.quantity}</span>
+                    {item.quantity > 0 ? (
+                      <span>{item.quantity}</span>
+                    ) : (
+                      <span style={{ color: "red" }}>Out Of Stock</span>
+                    )}
                   </h4>
                   <p className="vote">
                     <strong>91%</strong> of buyers enjoyed this product!
@@ -151,29 +155,27 @@ class ItemDetail extends Component {
                     />
                     <span className="color green" />
                     <span className="color blue" />
-                    <input
-                      type="number"
-                      name="quantity"
-                      className="form-control input-sm"
-                      defaultValue={1}
-                      min="1"
-                      max={item.quantity}
-                      onChange={this.changeHandler}
-                    />
                   </h5>
-
-                  <div className="action">
-                    <button
-                      className="add-to-cart btn btn-default"
-                      onClick={() => this.handleAdd()}
-                      type="button"
-                    >
-                      add to cart
-                    </button>
-                    <button className="like btn btn-default" type="button">
-                      <i className="fas fa-star">X</i>
-                    </button>
-                  </div>
+                  {item.quantity > 0 && (
+                    <div className="action">
+                      <input
+                        type="number"
+                        name="quantity"
+                        className="form-control input-sm"
+                        defaultValue={1}
+                        min="1"
+                        max={item.quantity}
+                        onChange={this.changeHandler}
+                      />
+                      <button
+                        className="add-to-cart btn btn-default"
+                        onClick={() => this.handleAdd()}
+                        type="button"
+                      >
+                        add to cart
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

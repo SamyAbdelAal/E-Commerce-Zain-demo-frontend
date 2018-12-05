@@ -6,7 +6,12 @@ import AddressCard from "./AddressCard";
 class AddressList extends Component {
   render() {
     const addresses = this.props.addresses.map(address => (
-      <AddressCard type={this.props.type} key={address.id} address={address} />
+      <AddressCard
+        type={this.props.type}
+        key={address.id}
+        address={address}
+        id={address.id}
+      />
     ));
     return (
       <div
@@ -33,18 +38,6 @@ class AddressList extends Component {
               </button>
             </div>
             <div className="modal-body">{addresses}</div>
-            {/* <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
-              </button>
-            </div> */}
           </div>
         </div>
       </div>

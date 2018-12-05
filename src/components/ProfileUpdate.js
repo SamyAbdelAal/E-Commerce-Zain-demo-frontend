@@ -56,8 +56,8 @@ class ProfileUpdate extends Component {
     return (
       <div className="card col-6 mx-auto p-0 mt-5">
         <div className="card-body">
-          <h5 className="card-title mb-4">Register an account</h5>
-          <form onSubmit={this.submitHandler} noValidate>
+          <h5 className="card-title mb-4">Update account</h5>
+          <form onSubmit={this.submitHandler}>
             {/* {authStore.errors.length > 0 && (
             <div className="alert alert-danger" role="alert">
               {authStore.errors}
@@ -113,16 +113,7 @@ class ProfileUpdate extends Component {
                 onChange={this.changeHandler}
               />
             </div>
-            <div className="form-group">
-              <input
-                className="form-control"
-                type="file"
-                defaultValue={this.props.profile.profile_pic}
-                placeholder="Change Pic"
-                name="profile_pic"
-                onChange={this.changeHandler}
-              />
-            </div>
+
             <input className="btn btn-primary" type="submit" value="Update" />
           </form>
         </div>

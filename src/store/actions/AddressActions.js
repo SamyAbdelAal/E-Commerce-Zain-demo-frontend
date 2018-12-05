@@ -42,3 +42,20 @@ export const fetchAddresses = () => {
       .catch(err => alert(err));
   };
 };
+
+export const updateAddress = (addressInfo, history, address_id) => {
+  console.log(address_id);
+  return dispatch => {
+    instance
+      .put(`api/address/${address_id}/update/`, addressInfo)
+      .then(res => res.data)
+      .then(addressInfo => {
+        dispatch({
+          type: actionTypes.UPDATE_ADDRESS,
+          payload: addressInfo
+        });
+        history.push("Profile");
+      })
+      .catch(err => console.error(err.response.data));
+  };
+};
