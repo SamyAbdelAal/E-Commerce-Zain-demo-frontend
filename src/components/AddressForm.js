@@ -32,8 +32,13 @@ class AddressForm extends Component {
 
   submitHandler(e) {
     e.preventDefault();
-
-    this.props.createAddress(this.state);
+    if (this.props.update) {
+      this.props.updateAddress(
+        this.state,
+        this.props.history,
+        this.props.address_id
+      );
+    } else this.props.createAddress(this.state);
   }
 
   render() {
@@ -193,7 +198,9 @@ class AddressForm extends Component {
 
 const mapDispatchToProps = dispatch => ({
   createAddress: addressDetail =>
-    dispatch(actionCreators.createAddress(addressDetail))
+    dispatch(actionCreators.createAddress(addressDetail)),
+  updateAddress: (addressInfo, history, address_id) =>
+    dispatch(actionCreators.updateAddress(addressInfo, history, address_id))
 });
 const mapStateToProps = state => {
   return {

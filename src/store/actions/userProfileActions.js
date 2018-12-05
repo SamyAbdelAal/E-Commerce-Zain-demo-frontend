@@ -38,7 +38,7 @@ export const updateUserProfile = (profileInfo, userID, history) => {
         });
         history.goBack();
       })
-      .catch(err => console.error(err));
+      .catch(err => console.error(err.response.data));
   };
 };
 

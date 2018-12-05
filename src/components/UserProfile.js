@@ -5,16 +5,29 @@ import * as actionCreators from "../store/actions";
 // Components
 import Loading from "./Loading";
 import AddressList from "./AddressList";
+import AddressForm from "./AddressForm";
 
 class UserProfile extends Component {
   componentDidMount() {
+    if (!this.props.user) {
+      this.props.history.push("/login");
+    }
     this.props.getProfile();
+  }
+
+  componentDidUpdate() {
+    if (!this.props.user) {
+      this.props.history.push("/");
+    }
   }
 
   render() {
     const type = this.props.match.url.substring(1);
     if (this.props.loading) {
       return <Loading />;
+    } else if (!this.props.user) {
+      this.props.history.push("/");
+      return null;
     } else {
       const profile = this.props.profile;
       return (
@@ -25,13 +38,25 @@ class UserProfile extends Component {
                 <div className="card-title mb-4">
                   <div className="d-flex justify-content-start">
                     <div className="image-container">
-                      <img
-                        alt="user"
-                        src="http://placehold.it/150x150"
-                        id="imgProfile"
-                        style={{ width: "150px, height: 150px" }}
-                        className="img-thumbnail"
-                      />
+                      {profile.profile_pic ? (
+                        <img
+                          alt="user"
+                          src={`http://192.168.100.32:8000${
+                            profile.profile_pic
+                          }`}
+                          id="imgProfile"
+                          style={{ width: "150px, height: 150px" }}
+                          className="img-thumbnail"
+                        />
+                      ) : (
+                        <img
+                          alt="user"
+                          src="http://placehold.it/150x150"
+                          id="imgProfile"
+                          style={{ width: "150px, height: 150px" }}
+                          className="img-thumbnail"
+                        />
+                      )}
                       <div className="middle">
                         <Link
                           to="/profile/update/"
@@ -126,9 +151,54 @@ class UserProfile extends Component {
                               data-toggle="modal"
                               data-target="#addressList"
                             >
-                              Choose Address
+                              Saved Addresses
                             </button>
                             <AddressList type={type} />
+                            <div className="col-xs-3">
+                              <button
+                                type="button"
+                                className="btn btn-primary"
+                                data-toggle="modal"
+                                data-target="#addressForm"
+                              >
+                                Add New Address
+                              </button>
+                              <div
+                                className="modal fade"
+                                id="addressForm"
+                                tabIndex="-1"
+                                role="dialog"
+                                aria-labelledby="exampleModalCenterTitle"
+                                aria-hidden="true"
+                              >
+                                <div
+                                  className="modal-dialog modal-dialog-centered"
+                                  role="document"
+                                >
+                                  <div className="modal-content">
+                                    <div className="modal-header">
+                                      <h5
+                                        className="modal-title"
+                                        id="exampleModalCenterTitle"
+                                      >
+                                        Modal title
+                                      </h5>
+                                      <button
+                                        type="button"
+                                        className="close"
+                                        data-dismiss="modal"
+                                        aria-label="Close"
+                                      >
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div className="modal-body">
+                                      <AddressForm />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                         <hr />

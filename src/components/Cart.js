@@ -6,21 +6,51 @@ import * as actionCreators from "../store/actions";
 import AddressForm from "./AddressForm";
 import AddressCard from "./AddressCard";
 class Cart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { totalPrice: 0 };
+    this.getTotalPrice = this.getTotalPrice.bind(this);
+  }
+
+  componentDidMount() {
+    this.getTotalPrice(this.props.cart);
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.cart !== this.props.cart) {
+      this.getTotalPrice(this.props.cart);
+    }
+  }
   handleCheckout() {
-    if (this.props.user && this.props.address) {
+    if (!this.props.user) {
+      this.props.history.push("/login");
+    }
+    if (this.props.cart.length === 0) {
+      alert("No Items in the cart");
+    } else if (!this.props.address) {
+      alert("Please choose an address");
+    } else {
       const cartWithAddress = {
         address: this.props.address,
         cart: this.props.cart
       };
 
       this.props.checkout(cartWithAddress);
-    } else {
-      this.props.history.push("/login");
     }
+  }
+  getTotalPrice(cart) {
+    let sum = 0;
+    for (let i = 0; i < cart.length; i++) {
+      sum += parseFloat(cart[i].item.price) * cart[i].quantity;
+    }
+    this.setState({ totalPrice: sum });
   }
   render() {
     const addresses = this.props.addresses.map(address => (
-      <AddressCard key={address.id} address={address} />
+      <AddressCard
+        type={this.props.match.url.substring(1)}
+        key={address.id}
+        address={address}
+      />
     ));
     const address = this.props.addresses.find(
       address => address.id === this.props.address
@@ -28,13 +58,13 @@ class Cart extends Component {
     const cartItems = this.props.cart.map(order => (
       <CartItem key={order.id} order={order} />
     ));
-    let total = cart => {
-      let sum = 0;
-      for (let i = 0; i < cart.length; i++) {
-        sum += parseFloat(cart[i].item.price) * cart[i].quantity;
-      }
-      return sum;
-    };
+    // let total = cart => {
+    //   let sum = 0;
+    //   for (let i = 0; i < cart.length; i++) {
+    //     sum += parseFloat(cart[i].item.price) * cart[i].quantity;
+    //   }
+    //   return sum;
+    // };
     return (
       <div className="container">
         <div className="row">
@@ -70,7 +100,7 @@ class Cart extends Component {
                 <div className="row text-center">
                   <div className="col-xs-9">
                     <h4 className="text-right">
-                      Total <strong>{total(this.props.cart)}</strong>
+                      Total <strong>{this.state.totalPrice}</strong>
                     </h4>
                   </div>
 
@@ -176,18 +206,6 @@ class Cart extends Component {
                           <div className="modal-body">
                             <AddressForm />
                           </div>
-                          {/* <div className="modal-footer">
-                  <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-dismiss="modal"
-                  >
-                  Close
-                  </button>
-                  <button type="button" className="btn btn-primary">
-                  Save changes
-                  </button>
-                  </div> */}
                         </div>
                       </div>
                     </div>
