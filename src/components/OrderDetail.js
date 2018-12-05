@@ -7,14 +7,6 @@ import * as actionCreators from "../store/actions";
 import Loading from "./Loading";
 
 class OrderDetail extends Component {
-  //   constructor(props) {
-  //     super(props);
-  //     this.state = {
-  //       quantity: 1
-  //     };
-
-  //     this.changeHandler = this.changeHandler.bind(this);
-  //   }
   componentDidMount() {
     this.props.fetchOrder(this.props.match.params.orderID);
   }
@@ -29,34 +21,43 @@ class OrderDetail extends Component {
       );
       const order = this.props.order;
       return (
-        <div className="container">
+        <div className="container-fluid">
           <h1>Order {order.id}</h1>
           <h1>Address:</h1>
           <h3>
             Governorate:
             {order.address.governorate}
-            <br /> Area: {order.address.area} <br />
-            Block:
-            {order.address.block} <br />
-            Street: {order.address.street} <br />
-            Building: {order.address.building_or_house} <br />
-            floor:
-            {order.address.floor} <br />
-            Extra directions: {order.address.extra_directions}
+            {"   "} Area: {order.address.area} Block:
+            {order.address.block} Street: {order.address.street} Building:
+            {"   "}
+            {order.address.building_or_house} floor:
+            {order.address.floor} Extra directions:
+            {"   "}
+            {order.address.extra_directions}
+            {"   "}
           </h3>
 
           <h1>Order Products</h1>
-          <table className="table">
-            <thead className="thead-dark">
-              <tr>
-                <th scope="col">ProductName</th>
-                <th scope="col">Product Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col" />
-              </tr>
-            </thead>
-            <tbody>{productOrderRows}</tbody>
-          </table>
+          <div class="near_by_hotel_wrapper">
+            <div class="near_by_hotel_container">
+              <table className="table no-border custom_table dataTable no-footer dtr-inline">
+                <thead className="thead-dark">
+                  <tr>
+                    <th scope="col" className="text-center">
+                      ProductName
+                    </th>
+                    <th scope="col" className="text-center">
+                      Product Price
+                    </th>
+                    <th scope="col" className="text-center">
+                      Quantity
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>{productOrderRows}</tbody>
+              </table>
+            </div>
+          </div>
         </div>
       );
     }

@@ -44,9 +44,6 @@ class ItemList extends Component {
           <div className="container">
             <h3>Products</h3>
             <SearchBar />
-            <button className="btn" onClick={() => this.handleCategory()}>
-              Food
-            </button>
             <select
               placeholder="category "
               className="form-control"

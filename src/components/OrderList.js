@@ -31,17 +31,32 @@ class OrderList extends Component {
       return null;
     } else {
       return (
-        <table className="table">
-          <thead className="thead-dark">
-            <tr>
-              <th scope="col">OrderId</th>
-              <th scope="col">TimeStamp</th>
-              <th scope="col">status</th>
-              <th scope="col" />
-            </tr>
-          </thead>
-          <tbody>{orderRows}</tbody>
-        </table>
+        <div class="near_by_hotel_wrapper">
+          <div class="near_by_hotel_container">
+            <table className="table no-border custom_table dataTable no-footer dtr-inline">
+              <colgroup>
+                <col width="10%" />
+                <col width="40%" />
+                <col width="" />
+              </colgroup>
+              <thead className="thead-dark">
+                <tr>
+                  <th scope="col" className="text-center">
+                    OrderId
+                  </th>
+                  <th scope="col" className="text-center">
+                    Ordered On
+                  </th>
+                  <th scope="col" className="text-center">
+                    status
+                  </th>
+                  <th scope="col" />
+                </tr>
+              </thead>
+              <tbody>{orderRows}</tbody>
+            </table>
+          </div>
+        </div>
       );
     }
   }

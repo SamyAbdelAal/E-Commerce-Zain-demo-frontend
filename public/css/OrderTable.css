@@ -1,0 +1,33 @@
+.near_by_hotel_wrapper {
+  background: #f5f5f5;
+}
+.custom_table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  margin-top: -3px !important;
+}
+.custom_table thead tr th {
+  padding: 0px 8px;
+  font-size: 16px;
+  border: 0 none !important;
+  border-top: 0 none !important;
+}
+.custom_table tbody tr {
+  -moz-box-shadow: 0 2px 3px #e0e0e0;
+  -webkit-box-shadow: 0 2px 3px #e0e0e0;
+  box-shadow: 0 2px 3px #e0e0e0;
+}
+.near_by_hotel_wrapper table tr td {
+  border-right: 1px solid #d2d1d1;
+}
+
+.custom_table tbody tr td {
+  background: #fff none repeat scroll 0 0;
+  border-top: 0 none !important;
+  margin-bottom: 20px;
+  padding: 10px 8px;
+  font-size: 16px;
+}
+.near_by_hotel_wrapper table tr td {
+  border-right: 1px solid #d2d1d1;
+}
