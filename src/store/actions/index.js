@@ -15,7 +15,8 @@ export {
   addProduct,
   checkout,
   removeItemFromCart,
-  setAddress
+  setAddress,
+  changeQuantity
 } from "./CartActions";
 
 export { fetchOrders, fetchOrder } from "./orderActions";

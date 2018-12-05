@@ -5,6 +5,7 @@ import CartItem from "./CartItem";
 import * as actionCreators from "../store/actions";
 import AddressForm from "./AddressForm";
 import AddressCard from "./AddressCard";
+
 class Cart extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +18,7 @@ class Cart extends Component {
   }
   componentDidUpdate(prevProps) {
     if (prevProps.cart !== this.props.cart) {
+      console.log("i update");
       this.getTotalPrice(this.props.cart);
     }
   }
@@ -31,18 +33,24 @@ class Cart extends Component {
     } else {
       const cartWithAddress = {
         address: this.props.address,
-        cart: this.props.cart
+        cart: this.props.cart,
+        totalPrice: this.state.totalPrice
       };
 
       this.props.checkout(cartWithAddress);
     }
   }
-  getTotalPrice(cart) {
+  getTotalPrice() {
+    let cart = this.props.cart;
+    console.log(cart);
     let sum = 0;
     for (let i = 0; i < cart.length; i++) {
       sum += parseFloat(cart[i].item.price) * cart[i].quantity;
     }
     this.setState({ totalPrice: sum });
+  }
+  changeHandler(itemId, value) {
+    this.props.changeQuantity(itemId, value);
   }
   render() {
     const addresses = this.props.addresses.map(address => (
@@ -56,15 +64,19 @@ class Cart extends Component {
       address => address.id === this.props.address
     );
     const cartItems = this.props.cart.map(order => (
-      <CartItem key={order.id} order={order} />
+      <CartItem
+        key={order.id}
+        order={order}
+        getTotalPrice={this.getTotalPrice}
+      />
     ));
-    // let total = cart => {
-    //   let sum = 0;
-    //   for (let i = 0; i < cart.length; i++) {
-    //     sum += parseFloat(cart[i].item.price) * cart[i].quantity;
-    //   }
-    //   return sum;
-    // };
+    let total = cart => {
+      let sum = 0;
+      for (let i = 0; i < cart.length; i++) {
+        sum += parseFloat(cart[i].item.price) * cart[i].quantity;
+      }
+      return sum;
+    };
     return (
       <div className="container">
         <div className="row">

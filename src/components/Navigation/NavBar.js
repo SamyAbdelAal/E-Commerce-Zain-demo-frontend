@@ -9,6 +9,11 @@ import * as actionCreators from "../../store/actions";
 
 class NavBar extends Component {
   render() {
+    const quantityCounter = list => {
+      let quantity = 0;
+      list.forEach(item => (quantity += item.quantity));
+      return quantity;
+    };
     return (
       <nav className="navbar navbar-expand-lg  fixed-top nav" id="mainNav">
         <Link className="navbar-brand" to="/welcome">
@@ -43,7 +48,7 @@ class NavBar extends Component {
             </Link>
           )}
           <Link className="btn btn-outline-primary" to="/cart">
-            Cart
+            Cart{quantityCounter(this.props.cart)}
           </Link>
         </div>
       </nav>
@@ -61,7 +66,8 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => {
   return {
     user: state.auth.user,
-    errs: state.errors
+    errs: state.errors,
+    cart: state.cart.cart
   };
 };
 

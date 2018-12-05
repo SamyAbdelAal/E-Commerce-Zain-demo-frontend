@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/actions";
-
+import NumericInput from "react-numeric-input";
 class CartItem extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +11,7 @@ class CartItem extends Component {
     };
 
     this.changeHandler = this.changeHandler.bind(this);
+    this.changeQuan = this.changeQuan.bind(this);
   }
   changeHandler(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -22,8 +23,14 @@ class CartItem extends Component {
     this.props.addProduct(product);
   }
 
+  changeQuan(value) {
+    console.log(value);
+    this.props.changeQuantity(this.props.order.id, value);
+    this.props.getTotalPrice();
+  }
   handleAdd() {}
   render() {
+    console.log(this.props.order);
     const order = this.props.order;
     return (
       <div className="container">
@@ -56,17 +63,23 @@ class CartItem extends Component {
                       <h6>
                         <strong>
                           {order.item.price}
-                          <span className="text-muted">x</span>
+                          <span className="text-muted">KD</span>
                         </strong>
                       </h6>
                     </div>
                     <div className="col-xs-6">
-                      <input
+                      {/* <input
                         type="number"
                         className="form-control input"
                         name="quantity"
                         defaultValue={order.quantity}
                         onChange={this.changeHandler}
+                      /> */}
+                      <NumericInput
+                        min={1}
+                        max={this.props.order.item["quantity"]}
+                        value={this.state.quantity}
+                        onChange={value => this.changeQuan(value)}
                       />
                     </div>
                     <div className="col-xs-2">
@@ -92,6 +105,8 @@ class CartItem extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
+    changeQuantity: (itemId, quantity) =>
+      dispatch(actionCreators.changeQuantity(itemId, quantity)),
     removeItemFromCart: item =>
       dispatch(actionCreators.removeItemFromCart(item)),
     addProduct: product => dispatch(actionCreators.addProduct(product))

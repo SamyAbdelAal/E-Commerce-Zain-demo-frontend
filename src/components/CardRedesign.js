@@ -19,8 +19,8 @@ class CardRedesign extends Component {
   render() {
     const item = this.props.item;
     return (
-      <div class="[ col-lg-3 ]">
-        <div class="[ info-card ]">
+      <div className="[ col-lg-3 ]">
+        <div className="[ info-card ]">
           <img
             style={{ width: "100%" }}
             src={item.img}
@@ -28,15 +28,15 @@ class CardRedesign extends Component {
             height="300px"
             style={{ objectFit: "cover" }}
           />
-          <div class="[ info-card-details ] animate">
-            <div class="[ info-card-header ]">
+          <div className="[ info-card-details ] animate">
+            <div className="[ info-card-header ]">
               <h1> {item.name} </h1>
               <h3> Tagline </h3>
             </div>
-            <div class="[ info-card-detail ]">
+            <div className="[ info-card-detail ]">
               <p>{item.description}</p>
             </div>
-            <div class="card-footer">
+            <div className="card-footer">
               <img
                 src="https://static.thenounproject.com/png/766721-200.png"
                 alt="rating"
@@ -45,7 +45,7 @@ class CardRedesign extends Component {
               />
 
               <Link
-                class="btn item-btn"
+                className="btn item-btn"
                 to={`/items/${item.id}`}
                 style={{ left: "60px" }}
               >
@@ -54,7 +54,7 @@ class CardRedesign extends Component {
 
               <button
                 onClick={() => this.handleAdd()}
-                class="btn item-btn"
+                className="btn item-btn"
                 style={{ left: "190px" }}
               >
                 BUY
