@@ -18,7 +18,6 @@ class Cart extends Component {
   }
   componentDidUpdate(prevProps) {
     if (prevProps.cart !== this.props.cart) {
-      console.log("i update");
       this.getTotalPrice(this.props.cart);
     }
   }
@@ -42,7 +41,6 @@ class Cart extends Component {
   }
   getTotalPrice() {
     let cart = this.props.cart;
-    console.log(cart);
     let sum = 0;
     for (let i = 0; i < cart.length; i++) {
       sum += parseFloat(cart[i].item.price) * cart[i].quantity;

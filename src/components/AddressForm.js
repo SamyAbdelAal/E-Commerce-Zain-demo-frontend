@@ -57,7 +57,7 @@ class AddressForm extends Component {
               <div className="form-group">
                 <div className="form-group">
                   <label
-                    className="col-sm-2
+                    className="col-sm-4
                  control-label"
                     htmlFor="textinput"
                   >
@@ -86,7 +86,7 @@ class AddressForm extends Component {
                   </div>
                 </div>
 
-                <label className="col-sm-2 control-label" htmlFor="textinput">
+                <label className="col-sm-4 control-label" htmlFor="textinput">
                   Area*
                 </label>
                 <div className="col">
@@ -99,7 +99,7 @@ class AddressForm extends Component {
                     name="area"
                   />
                 </div>
-                <label className="col-sm-2 control-label" htmlFor="textinput">
+                <label className="col-sm-4 control-label" htmlFor="textinput">
                   Block*
                 </label>
                 <div className="col">
@@ -112,7 +112,7 @@ class AddressForm extends Component {
                     name="block"
                   />
                 </div>
-                <label className="col-sm-2 control-label" htmlFor="textinput">
+                <label className="col-sm-4 control-label" htmlFor="textinput">
                   Street*
                 </label>
                 <div className="col">
@@ -125,7 +125,7 @@ class AddressForm extends Component {
                     name="street"
                   />
                 </div>
-                <label className="col-sm-2 control-label" htmlFor="textinput">
+                <label className="col-sm-4 control-label" htmlFor="textinput">
                   Building*
                 </label>
                 <div className="col">
@@ -138,7 +138,7 @@ class AddressForm extends Component {
                     name="building_or_house"
                   />
                 </div>
-                <label className="col-sm-2 control-label" htmlFor="textinput">
+                <label className="col-sm-4 control-label" htmlFor="textinput">
                   Floor
                 </label>
                 <div className="col">
@@ -151,7 +151,7 @@ class AddressForm extends Component {
                     name="floor"
                   />
                 </div>
-                <label className="col-sm-2 control-label" htmlFor="textinput">
+                <label className="col-sm-4 control-label" htmlFor="textinput">
                   Extra directions
                 </label>
                 <div className="col">
@@ -167,7 +167,7 @@ class AddressForm extends Component {
               </div>
 
               {/* <div className="form-group">
-                <label className="col-sm-2 control-label" htmlFor="textinput">
+                <label className="col-sm-4 control-label" htmlFor="textinput">
                   Country
                 </label>
                 <div className="col-sm-10">

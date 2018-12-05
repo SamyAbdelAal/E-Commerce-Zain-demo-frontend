@@ -33,22 +33,28 @@ class NavBar extends Component {
         >
           ☰
         </button>
-        <div style={{ marginLeft: "auto" }}>
+        <div style={{ marginLeft: "auto", fontSize: "17px" }}>
           {this.props.user ? (
             <button
               onClick={() => this.props.logout()}
               className="btn btn-outline-primary"
-              style={{ marginLeft: "auto" }}
+              style={{ marginLeft: "auto", fontSize: "17px" }}
             >
               logout {this.props.user.username}
             </button>
           ) : (
-            <Link className="btn btn-outline-success" to="/login">
+            <Link
+              className="btn btn-outline-success"
+              to="/login"
+              style={{ marginLeft: "auto", fontSize: "17px" }}
+            >
               login
             </Link>
           )}
           <Link className="btn btn-outline-primary" to="/cart">
-            Cart{quantityCounter(this.props.cart)}
+            <strong style={{ fontSize: "17px" }}>
+              <i class="fas fa-cart-plus" /> {quantityCounter(this.props.cart)}
+            </strong>
           </Link>
         </div>
       </nav>

@@ -23,7 +23,7 @@ class CardRedesign extends Component {
         <div className="[ info-card ]">
           <img
             style={{ width: "100%" }}
-            src={item.img}
+            src={item.img1}
             width="1000px"
             height="300px"
             style={{ objectFit: "cover" }}
@@ -34,16 +34,9 @@ class CardRedesign extends Component {
               <h3> Tagline </h3>
             </div>
             <div className="[ info-card-detail ]">
-              <p>{item.description}</p>
+              <p style={{ wordBreak: "break-all" }}>{item.description}</p>
             </div>
             <div className="card-footer">
-              <img
-                src="https://static.thenounproject.com/png/766721-200.png"
-                alt="rating"
-                width="100px"
-                height="100px"
-              />
-
               <Link
                 className="btn item-btn"
                 to={`/items/${item.id}`}
@@ -60,7 +53,7 @@ class CardRedesign extends Component {
                 BUY
               </button>
 
-              <span>{item.price}</span>
+              <span>{item.price} KD</span>
             </div>
           </div>
         </div>
