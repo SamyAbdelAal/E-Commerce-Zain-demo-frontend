@@ -6,6 +6,7 @@ import * as actionCreators from "../store/actions";
 
 import Card from "./Card";
 import CardRedesign from "./CardRedesign";
+import CardFinal from "./CardFinal";
 import SearchBar from "./SearchBar";
 import Loading from "./Loading";
 
@@ -23,23 +24,23 @@ class ItemList extends Component {
   }
   render() {
     const itemCards = this.props.filteredProducts.map(item => (
-      <CardRedesign key={item.id} item={item} />
+      <CardFinal key={item.id} item={item} />
     ));
 
     if (this.props.loading) {
       return <Loading />;
     } else {
       return (
-        <div className="banner-section">
-          <div className="d-flex">
-            <img
+        <div className="banner-section ">
+          <div className="d-flex ">
+            <h1>Browse our selection of products</h1>
+            {/*<img
               alt="item"
               className="card-img-top img-fluid"
               src={
-                "https://www.acurax.com/wp-content/themes/acuraxsite/images/inner_page_bnr.jpg?x21789"
+                "https://lh3.googleusercontent.com/KsFlzYa4rjS1a2ioPxn-0TD63xfJwCsTWxgrdAEivgshSSL__a7BIZlth-EKasYPnu4=w2247-h1264-rw"
               }
-              style={{ cursor: "default" }}
-            />
+            />*/}
           </div>
           <div className="container">
             <h3>Products</h3>

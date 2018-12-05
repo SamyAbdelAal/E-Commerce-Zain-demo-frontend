@@ -49,19 +49,19 @@ class ItemDetail extends Component {
                 <div className="preview col-md-6">
                   <div className="preview-pic tab-content">
                     <div className="tab-pane active" id="pic-1">
-                      <img alt="item" src={item.img} />
+                      <img alt="item" src={item.img1} />
                     </div>
                     <div className="tab-pane" id="pic-2">
-                      <img alt="item" src={item.img} />
+                      <img alt="item" src={item.img2} />
                     </div>
                     <div className="tab-pane" id="pic-3">
-                      <img alt="item" src={item.img} />
+                      <img alt="item" src={item.img3} />
                     </div>
                     <div className="tab-pane" id="pic-4">
-                      <img alt="item" src={item.img} />
+                      <img alt="item" src={item.img4} />
                     </div>
                     <div className="tab-pane" id="pic-5">
-                      <img alt="item" src={item.img} />
+                      <img alt="item" src={item.img5} />
                     </div>
                   </div>
                   <ul
@@ -70,27 +70,27 @@ class ItemDetail extends Component {
                   >
                     <li className="active">
                       <a href="#" data-target="#pic-1" data-toggle="tab">
-                        <img alt="item" src={item.img} />
+                        <img alt="item" src={item.img1} />
                       </a>
                     </li>
                     <li>
                       <a href="#" data-target="#pic-2" data-toggle="tab">
-                        <img alt="item" src={item.img} />
+                        <img alt="item" src={item.img2} />
                       </a>
                     </li>
                     <li>
                       <a href="#" data-target="#pic-3" data-toggle="tab">
-                        <img alt="item" src={item.img} />
+                        <img alt="item" src={item.img3} />
                       </a>
                     </li>
                     <li>
                       <a href="#" data-target="#pic-4" data-toggle="tab">
-                        <img alt="item" src={item.img} />
+                        <img alt="item" src={item.img4} />
                       </a>
                     </li>
                     <li>
                       <a href="#" data-target="#pic-5" data-toggle="tab">
-                        <img alt="item" src={item.img} />
+                        <img alt="item" src={item.img5} />
                       </a>
                     </li>
                   </ul>
@@ -105,7 +105,7 @@ class ItemDetail extends Component {
                       <span className="fa fa-star" />
                       <span className="fa fa-star" />
                     </div>
-                    {/* <span className="review-no">41 reviews</span> */}
+
                   </div>
                   <p className="product-description">{item.description}</p>
                   <h4 className="price">
@@ -123,36 +123,7 @@ class ItemDetail extends Component {
                       <span style={{ color: "red" }}>Out Of Stock</span>
                     )}
                   </h4>
-                  <p className="vote" />
-                  {/* <h5 className="sizes">
-                    sizes:
-                    <span className="size" data-toggle="tooltip" title="small">
-                      s
-                    </span>
-                    <span className="size" data-toggle="tooltip" title="medium">
-                      m
-                    </span>
-                    <span className="size" data-toggle="tooltip" title="large">
-                      l
-                    </span>
-                    <span
-                      className="size"
-                      data-toggle="tooltip"
-                      title="xtra large"
-                    >
-                      xl
-                    </span>
-                  </h5>
-                  <h5 className="colors">
-                    colors:
-                    <span
-                      className="color orange not-available"
-                      data-toggle="tooltip"
-                      title="Not In store"
-                    />
-                    <span className="color green" />
-                    <span className="color blue" />
-                  </h5> */}
+
                   {item.quantity > 0 && (
                     <div className="action">
                       <input
@@ -180,7 +151,13 @@ class ItemDetail extends Component {
                 <ul class="menu-items">
                   <li class="active">Details producto</li>
                 </ul>
-                <div style={{ width: "100%", borderTop: "1px solid silver" }}>
+                <div
+                  style={{
+                    width: "100%",
+                    borderTop: "1px solid silver",
+                    fontSize: "20px"
+                  }}
+                >
                   <p style={{ padding: "15px" }}>
                     <small>
                       Stay connected either on the phone or the Web with the

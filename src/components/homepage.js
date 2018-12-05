@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import CardRedesign from "./CardRedesign";
+// import CardFinal from "./CardFinal";
+import CardFinal from "./CardFinal";
 import { Link } from "react-router-dom";
 
 class Homepage extends Component {
   render() {
     const itemCards = this.props.products
-      .slice(0, 3)
-      .map(item => <CardRedesign key={item.id} item={item} />);
+      .slice(this.props.products.length - 4, this.props.products.length)
+      .map(item => <CardFinal key={item.id} item={item} />);
     return (
       <div>
         <div className="upcoming py-5">
@@ -17,6 +18,11 @@ class Homepage extends Component {
                 <h2>Upcoming & Latest cars</h2>
                 <p>Latest Items added</p>
               </div>
+            </div>
+            <div
+              className="d-felx container-fluid "
+              style={{ justifyContent: "center" }}
+            >
               {itemCards}
             </div>
 

@@ -8,6 +8,7 @@ import Welcome from "./components/Welcome";
 import NavBar from "./components/Navigation/NavBar";
 import Footer from "./components/Footer";
 import LoginForm from "./components/LoginForm";
+import LoginFormNew from "./components/LoginFormNew";
 import SignupForm from "./components/SignupForm";
 import AddressForm from "./components/AddressForm";
 import ItemList from "./components/ItemList";
@@ -41,7 +42,7 @@ class App extends Component {
         <SideNav />
         <Switch>
           <Route path="/welcome" component={Welcome} />
-          <Route path="/login" component={LoginForm} />
+          <Route path="/login" component={LoginFormNew} />
           <Route path="/address" component={AddressForm} />
           <Route path="/signup" component={SignupForm} />
           <Route path="/items/:itemID" component={ItemDetail} />

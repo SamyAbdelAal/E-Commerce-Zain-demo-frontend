@@ -8,6 +8,7 @@ html {
 body {
   overflow-x: hidden;
   font-family: "Exo 2", sans-serif;
+  background-color: #69c2a2;
 }
 
 body.sticky-footer {
@@ -336,7 +337,6 @@ body.sidenav-toggled #mainNav.fixed-top #sidenavToggler i {
 }
 
 img {
-  cursor: zoom-in;
   display: flex;
   max-width: 100%;
   margin-left: auto;
@@ -538,9 +538,8 @@ img {
   margin-left: 20px;
 }
 
-.add-to-cart,
-.like {
-  background: #ff9f1a;
+.add-to-cart {
+  background: #4f2d8c;
   padding: 1.2em 1.5em;
   border: none;
   text-transform: UPPERCASE;
@@ -551,7 +550,7 @@ img {
 }
 .add-to-cart:hover,
 .like:hover {
-  background: #b36800;
+  background: #c0b072;
   color: #fff;
 }
 
@@ -609,19 +608,83 @@ img {
 
 /*# sourceMappingURL=style.css.map */
 
+.banner-section .d-flex {
+  height: 25vh;
+  align-items: center;
+  justify-content: center;
+  background: url("https://lh3.googleusercontent.com/KsFlzYa4rjS1a2ioPxn-0TD63xfJwCsTWxgrdAEivgshSSL__a7BIZlth-EKasYPnu4=w2247-h1264-rw");
+}
+
 .welcome {
-  background-image: url("http://www.velocityconsultancy.com/wp-content/uploads/2017/12/ecommerce.jpg");
+  background-image: url("../images/Header.png");
   height: calc(100vh - (42px + 70px));
   background-size: cover;
   color: #f0f0f0;
 
   margin-top: -6px;
 }
+
+.login-container {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.login-form-1 {
+  padding: 5%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3 {
+  text-align: center;
+  color: #333;
+}
+.login-form-2 {
+  padding: 5%;
+  background: #4f2d8c;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3 {
+  text-align: center;
+  color: #fff;
+}
+.login-container form {
+  padding: 10%;
+}
+.btnSubmit {
+  width: 50%;
+  border-radius: 1rem;
+  padding: 1.5%;
+  border: none;
+  cursor: pointer;
+}
+.login-form-1 .btnSubmit {
+  font-weight: 600;
+  color: #fff;
+  background-color: #4f2d8c;
+}
+.login-form-2 .btnSubmit {
+  font-weight: 600;
+  color: #0062cc;
+  background-color: #fff;
+}
+.login-form-2 .ForgetPwd {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.login-form-1 .ForgetPwd {
+  color: #0062cc;
+  font-weight: 600;
+  text-decoration: none;
+}
+
 @media only screen and (min-width: 1000px) {
   .addreesForm {
     margin-left: 0;
     min-width: 450px;
   }
+}
+
+.form-horizontal .control-label {
+  text-align: left;
 }
 
 .items {

@@ -43,7 +43,7 @@ class CartItem extends Component {
                     <img
                       className="img-responsive"
                       alt="item"
-                      src={order.item.img}
+                      src={order.item.img1}
                     />
                   </div>
                   <div className="col">
@@ -54,7 +54,9 @@ class CartItem extends Component {
                     </Link>
                     <div style={{ height: "100px", overflow: "hidden" }}>
                       <h4>
-                        <small>{order.item.description}</small>
+                        <small style={{ wordBreak: "break-all" }}>
+                          {order.item.description}
+                        </small>
                       </h4>
                     </div>
                   </div>
@@ -68,21 +70,25 @@ class CartItem extends Component {
                       </h6>
                     </div>
                     <div className="col-xs-6">
-                      {/* <input
-                        type="number"
-                        className="form-control input"
-                        name="quantity"
-                        defaultValue={order.quantity}
-                        onChange={this.changeHandler}
-                      /> */}
+                      {/*input type="number" className="form-control input"
+                      name="quantity" min=
+                      {1}
+                      max=
+                      {this.props.order.item["quantity"]}
+                      defaultValue=
+                      {this.state.quantity}
+                      onChange=
+                      {value => this.changeQuan(value)}
+                      />*/}
                       <NumericInput
+                        className="form-control"
                         min={1}
                         max={this.props.order.item["quantity"]}
                         value={order.quantity}
                         onChange={value => this.changeQuan(value)}
                       />
                     </div>
-                    <div className="col-xs-2">
+                    <div className="col-xs-6 text-center">
                       <button
                         type="button"
                         className="btn btn-link btn-xs"
