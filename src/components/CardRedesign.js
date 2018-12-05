@@ -31,18 +31,18 @@ class CardRedesign extends Component {
           <div className="[ info-card-details ] animate">
             <div className="[ info-card-header ]">
               <h1> {item.name} </h1>
-              <h3> Tagline </h3>
+              {/* <h3> Tagline </h3> */}
             </div>
             <div className="[ info-card-detail ]">
               <p>{item.description}</p>
             </div>
             <div className="card-footer">
-              <img
+              {/* <img
                 src="https://static.thenounproject.com/png/766721-200.png"
                 alt="rating"
                 width="100px"
                 height="100px"
-              />
+              /> */}
 
               <Link
                 className="btn item-btn"
@@ -51,16 +51,31 @@ class CardRedesign extends Component {
               >
                 Details
               </Link>
-
-              <button
+              {item.quantity ? (
+                <button
+                  onClick={() => this.handleAdd()}
+                  className="btn item-btn"
+                  style={{ left: "190px" }}
+                >
+                  BUY
+                </button>
+              ) : (
+                <div
+                  className="btn item-btn"
+                  style={{ left: "180px", color: "red", fontSize: "10px" }}
+                >
+                  Out of stock
+                </div>
+              )}
+              {/* <button
                 onClick={() => this.handleAdd()}
                 className="btn item-btn"
                 style={{ left: "190px" }}
               >
                 BUY
-              </button>
+              </button> */}
 
-              <span>{item.price}</span>
+              <span>{item.price + " KD"}</span>
             </div>
           </div>
         </div>

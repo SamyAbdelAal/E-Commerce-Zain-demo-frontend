@@ -78,7 +78,7 @@ class CartItem extends Component {
                       <NumericInput
                         min={1}
                         max={this.props.order.item["quantity"]}
-                        value={this.state.quantity}
+                        value={order.quantity}
                         onChange={value => this.changeQuan(value)}
                       />
                     </div>

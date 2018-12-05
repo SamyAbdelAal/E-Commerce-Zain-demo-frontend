@@ -105,7 +105,7 @@ class ItemDetail extends Component {
                       <span className="fa fa-star" />
                       <span className="fa fa-star" />
                     </div>
-                    <span className="review-no">41 reviews</span>
+                    {/* <span className="review-no">41 reviews</span> */}
                   </div>
                   <p className="product-description">{item.description}</p>
                   <h4 className="price">
@@ -123,11 +123,8 @@ class ItemDetail extends Component {
                       <span style={{ color: "red" }}>Out Of Stock</span>
                     )}
                   </h4>
-                  <p className="vote">
-                    <strong>91%</strong> of buyers enjoyed this product!
-                    <strong>(87 votes)</strong>
-                  </p>
-                  <h5 className="sizes">
+                  <p className="vote" />
+                  {/* <h5 className="sizes">
                     sizes:
                     <span className="size" data-toggle="tooltip" title="small">
                       s
@@ -155,7 +152,7 @@ class ItemDetail extends Component {
                     />
                     <span className="color green" />
                     <span className="color blue" />
-                  </h5>
+                  </h5> */}
                   {item.quantity > 0 && (
                     <div className="action">
                       <input

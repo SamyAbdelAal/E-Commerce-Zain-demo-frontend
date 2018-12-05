@@ -106,92 +106,27 @@ class Cart extends Component {
               </div>
               <div className="panel-body">
                 <hr />
-                {cartItems}
+                {this.props.cart.length > 0 ? (
+                  cartItems
+                ) : (
+                  <div class="center">Your cart is empty</div>
+                )}
               </div>
-              <div className="panel-footer">
-                <div className="row text-center">
-                  <div className="col-xs-9">
-                    <h4 className="text-right">
-                      Total <strong>{this.state.totalPrice}</strong>
-                    </h4>
-                  </div>
-
-                  <div
-                    className="modal fade"
-                    id="addressList"
-                    tabIndex="-1"
-                    role="dialog"
-                    aria-labelledby="Addresses"
-                    aria-hidden="true"
-                  >
-                    <div
-                      className="modal-dialog modal-dialog-centered"
-                      role="document"
-                    >
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5
-                            className="modal-title"
-                            id="exampleModalCenterTitle"
-                          >
-                            Saved Addresses
-                          </h5>
-                          <button
-                            type="button"
-                            className="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                          >
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div className="modal-body">{addresses}</div>
-                        {/* <div className="modal-footer">
-                          <button
-                            type="button"
-                            className="btn btn-secondary"
-                            data-dismiss="modal"
-                          >
-                            Close
-                          </button>
-                          <button type="button" className="btn btn-primary">
-                            Save changes
-                          </button>
-                        </div> */}
-                      </div>
+              {this.props.cart.length > 0 && (
+                <div className="panel-footer">
+                  <div className="row text-center">
+                    <div className="col-xs-9">
+                      <h4 className="text-right">
+                        Total <strong>{this.state.totalPrice}</strong>
+                      </h4>
                     </div>
-                  </div>
-                  <div>
-                    <h4>Order Address</h4>
-                    {this.props.address ? (
-                      <p>{`Governorate: ${address.governorate}/ area: ${
-                        address.area
-                      }/ block: ${address.block}/ street: ${
-                        address.street
-                      }/ building_or_house: ${
-                        address.building_or_house
-                      }/ floor: ${address.floor}/ extra directions: ${
-                        address.extra_directions
-                      }`}</p>
-                    ) : (
-                      "No address specified"
-                    )}
-                  </div>
-                  <div className="col-xs-3">
-                    <button
-                      type="button"
-                      className="btn btn-primary"
-                      data-toggle="modal"
-                      data-target="#addressForm"
-                    >
-                      Add New Address
-                    </button>
+
                     <div
                       className="modal fade"
-                      id="addressForm"
+                      id="addressList"
                       tabIndex="-1"
                       role="dialog"
-                      aria-labelledby="exampleModalCenterTitle"
+                      aria-labelledby="Addresses"
                       aria-hidden="true"
                     >
                       <div
@@ -204,7 +139,7 @@ class Cart extends Component {
                               className="modal-title"
                               id="exampleModalCenterTitle"
                             >
-                              Modal title
+                              Saved Addresses
                             </h5>
                             <button
                               type="button"
@@ -215,32 +150,103 @@ class Cart extends Component {
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <div className="modal-body">
-                            <AddressForm />
+                          <div className="modal-body">{addresses}</div>
+                          {/* <div className="modal-footer">
+                          <button
+                            type="button"
+                            className="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button type="button" className="btn btn-primary">
+                            Save changes
+                          </button>
+                        </div> */}
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h4>Order Address</h4>
+                      {this.props.address ? (
+                        <p>{`Governorate: ${address.governorate}/ area: ${
+                          address.area
+                        }/ block: ${address.block}/ street: ${
+                          address.street
+                        }/ building_or_house: ${
+                          address.building_or_house
+                        }/ floor: ${address.floor}/ extra directions: ${
+                          address.extra_directions
+                        }`}</p>
+                      ) : (
+                        "No address specified"
+                      )}
+                    </div>
+                    <div className="col-xs-3">
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        data-toggle="modal"
+                        data-target="#addressForm"
+                      >
+                        Add New Address
+                      </button>
+                      <div
+                        className="modal fade"
+                        id="addressForm"
+                        tabIndex="-1"
+                        role="dialog"
+                        aria-labelledby="exampleModalCenterTitle"
+                        aria-hidden="true"
+                      >
+                        <div
+                          className="modal-dialog modal-dialog-centered"
+                          role="document"
+                        >
+                          <div className="modal-content">
+                            <div className="modal-header">
+                              <h5
+                                className="modal-title"
+                                id="exampleModalCenterTitle"
+                              >
+                                Modal title
+                              </h5>
+                              <button
+                                type="button"
+                                className="close"
+                                data-dismiss="modal"
+                                aria-label="Close"
+                              >
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div className="modal-body">
+                              <AddressForm />
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-xs-3">
+                    <div className="col-xs-3">
+                      <button
+                        onClick={() => this.handleCheckout()}
+                        type="button"
+                        className="btn btn-success btn-block"
+                      >
+                        Checkout
+                      </button>
+                    </div>
                     <button
-                      onClick={() => this.handleCheckout()}
                       type="button"
-                      className="btn btn-success btn-block"
+                      className="btn btn-primary"
+                      data-toggle="modal"
+                      data-target="#addressList"
                     >
-                      Checkout
+                      Choose Address
                     </button>
                   </div>
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    data-toggle="modal"
-                    data-target="#addressList"
-                  >
-                    Choose Address
-                  </button>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

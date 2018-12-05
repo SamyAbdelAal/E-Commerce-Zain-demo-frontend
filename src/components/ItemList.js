@@ -53,8 +53,8 @@ class ItemList extends Component {
               <option value="" defaultValue="selected">
                 (Select a category)
               </option>
-              <option value="FOOD">FOOD</option>
-              <option value="DRINKS">DRINKS</option>
+              <option value="MOBILES">MOBILES</option>
+              <option value="TABLETS">TABLETS</option>
             </select>
             <div className="row">{itemCards}</div>
           </div>
