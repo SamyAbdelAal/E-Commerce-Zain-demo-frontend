@@ -9,12 +9,25 @@ class CardFinal extends Component {
     this.handleAdd = this.handleAdd.bind(this);
   }
   handleAdd() {
-    let product = {
-      id: this.props.item.id,
-      item: this.props.item,
-      quantity: 1
-    };
-    this.props.addProduct(product);
+    let itemInCart = this.props.cart.find(
+      item => item.id === this.props.item.id
+    );
+    let quantityThreshold = this.props.item.quantity;
+    let counter = 1;
+    if (itemInCart) {
+      quantityThreshold -= itemInCart.quantity;
+    }
+    if (counter <= quantityThreshold) {
+      let product = {
+        id: this.props.item.id,
+        item: this.props.item,
+        quantity: 1
+      };
+      this.props.addProduct(product);
+      counter++;
+    } else {
+      alert("Can't add anymore of this item!");
+    }
   }
   render() {
     const item = this.props.item;
@@ -71,12 +84,20 @@ class CardFinal extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    cart: state.cart.cart,
+    loading: state.product.loading
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     addProduct: product => dispatch(actionCreators.addProduct(product))
   };
 };
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(CardFinal);

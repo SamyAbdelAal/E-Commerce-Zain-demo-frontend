@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/actions";
+import NumericInput from "react-numeric-input";
 
 // Components
 import Loading from "./Loading";
@@ -11,8 +12,8 @@ class ItemDetail extends Component {
     this.state = {
       quantity: 1
     };
-
     this.changeHandler = this.changeHandler.bind(this);
+    this.changeQuan = this.changeQuan.bind(this);
   }
   componentDidMount() {
     this.props.getProduct(this.props.match.params.itemID);
@@ -23,12 +24,35 @@ class ItemDetail extends Component {
   }
 
   handleAdd() {
-    let product = {
-      id: this.props.item.id,
-      item: this.props.item,
-      quantity: this.state.quantity
-    };
-    this.props.addProduct(product);
+    let itemInCart = this.props.cart.find(
+      item => item.id === this.props.item.id
+    );
+    let quantityThreshold = this.props.item.quantity;
+    let counter = 1;
+    if (itemInCart) {
+      quantityThreshold -= itemInCart.quantity;
+    }
+    if (counter <= quantityThreshold) {
+      let product = {
+        id: this.props.item.id,
+        item: this.props.item,
+        quantity: this.state.quantity
+      };
+      this.props.addProduct(product);
+      counter++;
+    } else {
+      alert("Can't add anymore of this item!");
+    }
+  }
+
+  changeQuan(value) {
+    if (value <= this.props.item.quantity) {
+      this.setState({ quantity: value });
+    } else {
+      this.setState({
+        quantity: this.props.item.quantity
+      });
+    }
   }
   render() {
     if (this.props.loading) {
@@ -123,10 +147,16 @@ class ItemDetail extends Component {
                       <span style={{ color: "red" }}>Out Of Stock</span>
                     )}
                   </h4>
-
+                  <NumericInput
+                    className="form-control"
+                    min={1}
+                    max={this.props.item.quantity}
+                    value={this.state.quantity}
+                    onChange={value => this.changeQuan(value)}
+                  />
                   {item.quantity > 0 && (
                     <div className="action">
-                      <input
+                      {/*<input
                         type="number"
                         name="quantity"
                         className="form-control input-sm"
@@ -134,7 +164,8 @@ class ItemDetail extends Component {
                         min="1"
                         max={item.quantity}
                         onChange={this.changeHandler}
-                      />
+                      />*/}
+
                       <button
                         className="add-to-cart btn btn-default"
                         onClick={() => this.handleAdd()}
@@ -233,6 +264,7 @@ class ItemDetail extends Component {
 const mapStateToProps = state => {
   return {
     item: state.product.product,
+    cart: state.cart.cart,
     loading: state.product.loading
   };
 };
