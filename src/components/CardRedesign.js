@@ -31,12 +31,13 @@ class CardRedesign extends Component {
           <div className="[ info-card-details ] animate">
             <div className="[ info-card-header ]">
               <h1> {item.name} </h1>
-              <h3> Tagline </h3>
+              {/* <h3> Tagline </h3> */}
             </div>
             <div className="[ info-card-detail ]">
               <p style={{ wordBreak: "break-all" }}>{item.description}</p>
             </div>
             <div className="card-footer">
+
               <Link
                 className="btn item-btn"
                 to={`/items/${item.id}`}
@@ -44,16 +45,31 @@ class CardRedesign extends Component {
               >
                 Details
               </Link>
-
-              <button
+              {item.quantity ? (
+                <button
+                  onClick={() => this.handleAdd()}
+                  className="btn item-btn"
+                  style={{ left: "190px" }}
+                >
+                  BUY
+                </button>
+              ) : (
+                <div
+                  className="btn item-btn"
+                  style={{ left: "180px", color: "red", fontSize: "10px" }}
+                >
+                  Out of stock
+                </div>
+              )}
+              {/* <button
                 onClick={() => this.handleAdd()}
                 className="btn item-btn"
                 style={{ left: "190px" }}
               >
                 BUY
-              </button>
+              </button> */}
 
-              <span>{item.price} KD</span>
+
             </div>
           </div>
         </div>

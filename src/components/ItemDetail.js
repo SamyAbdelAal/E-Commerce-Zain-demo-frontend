@@ -129,6 +129,7 @@ class ItemDetail extends Component {
                       <span className="fa fa-star" />
                       <span className="fa fa-star" />
                     </div>
+
                   </div>
                   <p className="product-description">{item.description}</p>
                   <h4 className="price">

@@ -1,8 +1,9 @@
 import * as actionTypes from "./actionTypes";
-
+import { fetchOrders } from "./orderActions";
 import axios from "axios";
 
 const instance = axios.create({
+
   baseURL: "http://192.168.100.32:8000/"
   //baseURL: "http://127.0.0.1:8000/"
 
@@ -23,6 +24,7 @@ export const checkout = cartWithAddress => {
           payload: order
         });
       })
+      .then(order => dispatch(fetchOrders()))
       .catch(err => console.error(err));
   };
 };
