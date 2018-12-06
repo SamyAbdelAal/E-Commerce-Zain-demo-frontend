@@ -7,7 +7,7 @@ class CartItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantity: 1
+      quantity: this.props.order.quantity
     };
 
     this.changeHandler = this.changeHandler.bind(this);
@@ -23,9 +23,15 @@ class CartItem extends Component {
     this.props.addProduct(product);
   }
 
-  changeQuan(value) {
-    console.log(value);
-    this.props.changeQuantity(this.props.order.id, value);
+  async changeQuan(value) {
+    if (value <= this.props.order.item.quantity) {
+      this.props.changeQuantity(this.props.order.id, value);
+    } else {
+      const newState = await this.setState({
+        quantity: this.props.order.item.quantity
+      });
+      this.props.changeQuantity(this.props.order.id, this.state.quantity);
+    }
     this.props.getTotalPrice();
   }
   handleAdd() {}

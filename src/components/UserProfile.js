@@ -38,25 +38,6 @@ class UserProfile extends Component {
                 <div className="card-title mb-4">
                   <div className="d-flex justify-content-start">
                     <div className="image-container">
-                      {profile.profile_pic ? (
-                        <img
-                          alt="user"
-                          src={`http://192.168.100.32:8000${
-                            profile.profile_pic
-                          }`}
-                          id="imgProfile"
-                          style={{ width: "150px, height: 150px" }}
-                          className="img-thumbnail"
-                        />
-                      ) : (
-                        <img
-                          alt="user"
-                          src="http://placehold.it/150x150"
-                          id="imgProfile"
-                          style={{ width: "150px, height: 150px" }}
-                          className="img-thumbnail"
-                        />
-                      )}
                       <div className="middle">
                         <Link
                           to="/profile/update/"
